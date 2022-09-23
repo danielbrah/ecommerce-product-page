@@ -1,10 +1,28 @@
 header
 {
     display: flex;
+    justify-content: space-between;
+    height: 68px;
 
     #header__first__section
     {
         display: flex;
         align-items: center;
+        gap: 16px;
+        padding-left: 16px;
+    }
+
+    #header__second__section
+    {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding-right: 16px;
+
+        img:nth-child(2)
+        {
+            height: 22px;
+            width: 22px;
+        }
     }
 }

@@ -1,5 +1,7 @@
 #nav-menu
 {
+    display: flex;
+    flex-flow: column;
     position: absolute;
     top: 0;
     left: -250px;
@@ -7,6 +9,12 @@
     width: 250px;
     background: white;
     transition: left 150ms ease;
+    padding: 26px 0 0 16px;
+    gap: 18px;
+    font-weight: 700;
+    img{
+        margin-bottom: 16px;
+    }
     &.active
     {
         left: 0;
