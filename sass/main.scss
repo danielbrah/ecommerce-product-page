@@ -1,5 +1,9 @@
+@import './abstracts/colors';
+
 @import './base/reset';
 @import './base/typography';
+
+@import './components/overlay';
 
 @import './layout/header';
 @import './layout/navmenu';
