@@ -13,7 +13,7 @@
   display: none;
 }
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 915px) {
   .mobile {
     display: none;
   }
@@ -25,6 +25,15 @@
   font-family: "Kumbh Sans", sans-serif;
 }
 
+#nav-menu {
+  font-weight: 700;
+}
+
+@media only screen and (min-width: 915px) {
+  #nav-menu {
+    font-weight: 400;
+  }
+}
 #overlay {
   position: absolute;
   top: 0;
@@ -41,6 +50,15 @@
   opacity: 0.5;
 }
 
+@media only screen and (min-width: 915px) {
+  #overlay {
+    transition: none;
+  }
+  #overlay.active {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -63,6 +81,24 @@ header #header__second__section img:nth-child(2) {
   width: 22px;
 }
 
+@media only screen and (min-width: 915px) {
+  header {
+    height: 112px;
+    border-bottom: 1px solid hsl(220deg, 14%, 75%);
+  }
+  header #header__first__section {
+    gap: 48px;
+    padding-left: 0;
+  }
+  header #header__second__section {
+    gap: 48px;
+    padding-right: 0;
+  }
+  header #header__second__section img:nth-child(2) {
+    height: 50px;
+    width: 50px;
+  }
+}
 #nav-menu {
   display: flex;
   flex-flow: column;
@@ -75,7 +111,6 @@ header #header__second__section img:nth-child(2) {
   transition: left 150ms ease;
   padding: 26px 0 0 16px;
   gap: 18px;
-  font-weight: 700;
 }
 #nav-menu img {
   margin-bottom: 16px;
@@ -84,8 +119,32 @@ header #header__second__section img:nth-child(2) {
   left: 0;
 }
 
+@media only screen and (min-width: 915px) {
+  #nav-menu {
+    flex-flow: row;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: auto;
+    background: transparent;
+    transition: none;
+    padding: 0;
+    gap: 18px;
+  }
+  #nav-menu.active {
+    left: 0;
+  }
+}
 #wrapper {
   width: 100%;
+}
+
+@media only screen and (min-width: 915px) {
+  #wrapper {
+    width: 77%;
+    margin: 0 auto;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

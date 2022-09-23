@@ -1,3 +1,4 @@
+@import '../abstracts/colors';
 header
 {
     display: flex;
@@ -23,6 +24,33 @@ header
         {
             height: 22px;
             width: 22px;
+        }
+    }
+}
+
+@media only screen and (min-width: 915px)
+{
+    header
+    {
+        height: 112px;
+        border-bottom: 1px solid map-get($grayish-blue, "normal");
+
+        #header__first__section
+        {
+            gap: 48px;
+            padding-left: 0;
+        }
+
+        #header__second__section
+        {
+            gap: 48px;
+            padding-right: 0;
+
+            img:nth-child(2)
+            {
+                height: 50px;
+                width: 50px;
+            }
         }
     }
 }
