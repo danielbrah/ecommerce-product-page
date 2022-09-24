@@ -50,6 +50,31 @@ header
             {
                 height: 50px;
                 width: 50px;
+                position: relative;
+                border: 3px solid transparent;
+                border-radius: 50%;
+                transition: border 100ms ease;
+
+                &:hover
+                {
+                    border: 3px solid map-get($orange, "normal");
+                }
+            }
+
+            svg
+            {
+                cursor: pointer;
+
+                > path
+                {
+                    fill: map-get($grayish-blue, "dark");
+                    transition: fill 100ms ease;
+                }
+
+                &:hover > path
+                {
+                    fill: $very-dark-blue;
+                }
             }
         }
     }

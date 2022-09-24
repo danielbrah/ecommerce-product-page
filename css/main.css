@@ -97,6 +97,23 @@ header #header__second__section img:nth-child(2) {
   header #header__second__section img:nth-child(2) {
     height: 50px;
     width: 50px;
+    position: relative;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    transition: border 100ms ease;
+  }
+  header #header__second__section img:nth-child(2):hover {
+    border: 3px solid hsl(26deg, 100%, 55%);
+  }
+  header #header__second__section svg {
+    cursor: pointer;
+  }
+  header #header__second__section svg > path {
+    fill: hsl(219deg, 9%, 45%);
+    transition: fill 100ms ease;
+  }
+  header #header__second__section svg:hover > path {
+    fill: hsl(220deg, 13%, 13%);
   }
 }
 #nav-menu {
