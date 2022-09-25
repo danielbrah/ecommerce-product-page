@@ -1,0 +1,23 @@
+#product-info
+{
+    display: flex;
+    flex-flow: column;
+    #product-image
+    {
+        #product-image-container
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+
+            img
+            {
+                position: absolute;
+                top: -40px;
+            }
+        }
+    }
+}

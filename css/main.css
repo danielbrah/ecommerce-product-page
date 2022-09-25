@@ -191,5 +191,21 @@ header #header__second__section img:nth-child(2) {
     margin: 0 auto;
   }
 }
+#product-info {
+  display: flex;
+  flex-flow: column;
+}
+#product-info #product-image #product-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+#product-info #product-image #product-image-container img {
+  position: absolute;
+  top: -40px;
+}
 
 /*# sourceMappingURL=main.css.map */
