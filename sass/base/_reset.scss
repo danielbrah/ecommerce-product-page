@@ -8,6 +8,11 @@
 .mobile{display: block;}
 .desktop{display: none;}
 
+#container
+{
+    z-index: 1;
+}
+
 @media only screen and (min-width: 915px)
 {
     .mobile{display: none;}

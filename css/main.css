@@ -13,6 +13,10 @@
   display: none;
 }
 
+#container {
+  z-index: 1;
+}
+
 @media only screen and (min-width: 915px) {
   .mobile {
     display: none;
@@ -27,6 +31,36 @@
 
 #nav-menu {
   font-weight: 700;
+}
+
+#product-options #company-name {
+  color: hsl(26deg, 100%, 55%);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+#product-options #product-name {
+  font-size: 28px;
+}
+#product-options #product-description {
+  color: hsl(219deg, 9%, 45%);
+  line-height: 140%;
+}
+#product-options #product-price #discounted-price h1:nth-child(1) {
+  font-size: 28px;
+}
+#product-options #product-price #discounted-price h1:nth-child(2) {
+  color: hsl(26deg, 100%, 55%);
+  font-size: 18px;
+  background: hsl(25deg, 100%, 94%);
+  padding: 3px 8px;
+  border-radius: 8px;
+}
+#product-options #product-price #original-price {
+  font-size: 16px;
+  color: hsl(220deg, 14%, 75%);
+  text-decoration: line-through;
 }
 
 @media only screen and (min-width: 915px) {
@@ -44,6 +78,7 @@
   visibility: hidden;
   background: black;
   transition: opacity 150ms ease, visibility 150ms ease;
+  z-index: 1;
 }
 #overlay.active {
   visibility: visible;
@@ -128,6 +163,7 @@ header #header__second__section img:nth-child(2) {
   transition: left 150ms ease;
   padding: 26px 0 0 16px;
   gap: 18px;
+  z-index: 1;
 }
 #nav-menu img {
   margin-bottom: 16px;
@@ -206,6 +242,22 @@ header #header__second__section img:nth-child(2) {
 #product-info #product-image #product-image-container img {
   position: absolute;
   top: -40px;
+}
+#product-info #product-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+}
+#product-info #product-options #product-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#product-info #product-options #product-price #discounted-price {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
-
+@import '../abstracts/colors';
 #container
 {
     font-family: 'Kumbh Sans', sans-serif;
@@ -8,6 +8,59 @@
 #nav-menu
 {
     font-weight: 700;
+}
+
+#product-options
+{
+    #company-name
+    {
+        color: map-get($orange, "normal");
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 2px;
+        font-size: 14px;
+    }
+
+    #product-name
+    {
+        font-size: 28px;
+    }
+
+    #product-description
+    {
+        color: map-get($grayish-blue, "dark");
+        line-height: 140%;
+    }
+
+    #product-price
+    {
+        #discounted-price
+        {
+            h1
+            {
+                &:nth-child(1)
+                {
+                    font-size: 28px;
+                }
+
+                &:nth-child(2)
+                {
+                    color: map-get($orange, "normal");
+                    font-size: 18px;
+                    background: map-get($orange, "pale");
+                    padding: 3px 8px;
+                    border-radius: 8px;
+                }
+            }
+        }
+
+        #original-price
+        {
+            font-size: 16px;
+            color: map-get($grayish-blue, "normal");
+            text-decoration: line-through;
+        }
+    }
 }
 
 @media only screen and (min-width: 915px)
