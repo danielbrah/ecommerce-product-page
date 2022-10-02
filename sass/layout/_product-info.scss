@@ -1,3 +1,4 @@
+@import '../abstracts/mixins';
 #product-info
 {
     display: flex;
@@ -6,18 +7,10 @@
     {
         #product-image-container
         {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @include center;
             position: relative;
             height: 300px;
             overflow: hidden;
-
-            img
-            {
-                position: absolute;
-                top: -40px;
-            }
         }
     }
 

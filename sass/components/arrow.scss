@@ -1,0 +1,15 @@
+@import '../abstracts/mixins';
+.arrow
+{
+    @include center;
+    position: relative;
+    background: white;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    img{
+        position: relative;
+        left: -2px;
+    }
+}
