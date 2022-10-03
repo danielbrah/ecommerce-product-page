@@ -271,6 +271,12 @@ header #header__second__section img:nth-child(2) {
   align-items: center;
   gap: 12px;
 }
+#product-info #product-options #product-action {
+  width: 327px;
+  height: 56px;
+  border: solid red;
+  margin: 0 auto;
+}
 
 #product-image-container-arrows {
   position: absolute;
