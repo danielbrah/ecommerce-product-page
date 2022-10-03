@@ -274,9 +274,10 @@ header #header__second__section img:nth-child(2) {
 
 #product-image-container-arrows {
   position: absolute;
-  width: 350px;
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  max-width: 350px;
 }
 
 /*# sourceMappingURL=main.css.map */
