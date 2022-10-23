@@ -39,8 +39,15 @@
         {
             width: 327px;
             height: 56px;
-            border: solid red;
             margin: 0 auto;
+
+            #quantity
+            {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border: solid red;
+            }
         }
     }
 }

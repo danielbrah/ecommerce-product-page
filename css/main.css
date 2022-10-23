@@ -274,8 +274,13 @@ header #header__second__section img:nth-child(2) {
 #product-info #product-options #product-action {
   width: 327px;
   height: 56px;
-  border: solid red;
   margin: 0 auto;
+}
+#product-info #product-options #product-action #quantity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: solid red;
 }
 
 #product-image-container-arrows {
