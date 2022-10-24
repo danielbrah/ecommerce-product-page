@@ -46,7 +46,9 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                border: solid red;
+                background: map-get($grayish-blue, "light");
+                border-radius: 8px;
+                padding: 18px 24px;
             }
         }
     }
