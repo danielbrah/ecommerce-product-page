@@ -37,8 +37,11 @@
 
         #product-action
         {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
             width: 327px;
-            height: 56px;
+            // height: 56px;
             margin: 0 auto;
 
             #quantity
@@ -49,6 +52,18 @@
                 background: map-get($grayish-blue, "light");
                 border-radius: 8px;
                 padding: 18px 24px;
+            }
+
+            #add-to-cart
+            {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                padding: 18px 24px;
+                border-radius: 8px;
+                background: map-get($orange, "normal");
+                color: white;
             }
         }
     }

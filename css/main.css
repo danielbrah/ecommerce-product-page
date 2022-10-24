@@ -65,6 +65,9 @@
 #product-options #product-action #quantity h2 {
   font-size: 16px;
 }
+#product-options #product-action #add-to-cart h2 {
+  font-size: 16px;
+}
 
 @media only screen and (min-width: 915px) {
   #nav-menu {
@@ -275,8 +278,10 @@ header #header__second__section img:nth-child(2) {
   gap: 12px;
 }
 #product-info #product-options #product-action {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   width: 327px;
-  height: 56px;
   margin: 0 auto;
 }
 #product-info #product-options #product-action #quantity {
@@ -286,6 +291,16 @@ header #header__second__section img:nth-child(2) {
   background: hsl(223deg, 64%, 98%);
   border-radius: 8px;
   padding: 18px 24px;
+}
+#product-info #product-options #product-action #add-to-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 18px 24px;
+  border-radius: 8px;
+  background: hsl(26deg, 100%, 55%);
+  color: white;
 }
 
 #product-image-container-arrows {
