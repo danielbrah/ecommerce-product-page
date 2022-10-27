@@ -283,6 +283,7 @@ header #header__second__section img:nth-child(2) {
   gap: 16px;
   width: 327px;
   margin: 0 auto;
+  max-width: 100%;
 }
 #product-info #product-options #product-action #quantity {
   display: flex;
@@ -303,6 +304,11 @@ header #header__second__section img:nth-child(2) {
   color: white;
 }
 
+@media only screen and (min-width: 915px) {
+  #product-info {
+    flex-flow: row;
+  }
+}
 #product-image-container-arrows {
   position: absolute;
   display: flex;

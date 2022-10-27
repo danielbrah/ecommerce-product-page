@@ -3,6 +3,7 @@
 {
     display: flex;
     flex-flow: column;
+
     #product-image
     {
         #product-image-container
@@ -43,6 +44,7 @@
             width: 327px;
             // height: 56px;
             margin: 0 auto;
+            max-width: 100%;
 
             #quantity
             {
@@ -66,5 +68,12 @@
                 color: white;
             }
         }
+    }
+}
+
+@media only screen and (min-width: 915px){
+    #product-info
+    {
+        flex-flow: row;
     }
 }
