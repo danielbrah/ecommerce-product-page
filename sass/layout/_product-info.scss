@@ -74,6 +74,19 @@
 @media only screen and (min-width: 915px){
     #product-info
     {
+        justify-content: space-between;
+        align-items: center;
         flex-flow: row;
+        flex: 1;
+        border: solid red;
+        #product-image
+        {
+            #product-image-container
+            {
+                height: 444px;
+                width: 444px;
+                border: solid red;
+            }
+        }
     }
 }

@@ -240,7 +240,10 @@ header #header__second__section img:nth-child(2) {
   }
 }
 #wrapper {
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  height: 100vh;
 }
 
 @media only screen and (min-width: 915px) {
@@ -306,7 +309,16 @@ header #header__second__section img:nth-child(2) {
 
 @media only screen and (min-width: 915px) {
   #product-info {
+    justify-content: space-between;
+    align-items: center;
     flex-flow: row;
+    flex: 1;
+    border: solid red;
+  }
+  #product-info #product-image #product-image-container {
+    height: 444px;
+    width: 444px;
+    border: solid red;
   }
 }
 #product-image-container-arrows {
