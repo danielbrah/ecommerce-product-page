@@ -71,10 +71,11 @@
     }
 }
 
-@media only screen and (min-width: 915px){
+@media only screen and (min-width: 915px)
+{
     #product-info
     {
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         flex-flow: row;
         flex: 1;
@@ -103,6 +104,29 @@
                 img{
                     width: 88px;
                     border-radius: 8px;
+                }
+            }
+        }
+
+        #product-options
+        {
+            max-width: 50ch;
+
+            #product-action
+            {
+                flex-direction: row;
+                width: auto;
+                max-width: none;
+                margin: 0;
+
+                #quantity
+                {
+                    width: 42%;
+                }
+
+                #add-to-cart
+                {
+                    width: 58%;
                 }
             }
         }
