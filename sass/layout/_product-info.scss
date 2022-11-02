@@ -112,6 +112,13 @@
         {
             max-width: 50ch;
 
+            #product-price
+            {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 8px;
+            }
+
             #product-action
             {
                 flex-direction: row;
@@ -121,12 +128,13 @@
 
                 #quantity
                 {
-                    width: 42%;
+                    width: 35%;
+                    padding: 18px;
                 }
 
                 #add-to-cart
                 {
-                    width: 58%;
+                    width: 65%;
                 }
             }
         }

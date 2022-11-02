@@ -348,6 +348,11 @@ header #header__second__section img:nth-child(2) {
   #product-info #product-options {
     max-width: 50ch;
   }
+  #product-info #product-options #product-price {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
   #product-info #product-options #product-action {
     flex-direction: row;
     width: auto;
@@ -355,10 +360,11 @@ header #header__second__section img:nth-child(2) {
     margin: 0;
   }
   #product-info #product-options #product-action #quantity {
-    width: 42%;
+    width: 35%;
+    padding: 18px;
   }
   #product-info #product-options #product-action #add-to-cart {
-    width: 58%;
+    width: 65%;
   }
 }
 #product-image-container-arrows {
