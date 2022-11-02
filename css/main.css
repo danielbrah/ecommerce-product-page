@@ -363,8 +363,20 @@ header #header__second__section img:nth-child(2) {
     width: 35%;
     padding: 18px;
   }
+  #product-info #product-options #product-action #quantity img {
+    cursor: pointer;
+    transition: opacity 150ms ease;
+  }
+  #product-info #product-options #product-action #quantity img:hover {
+    opacity: 0.6;
+  }
   #product-info #product-options #product-action #add-to-cart {
     width: 65%;
+    transition: opacity 150ms ease;
+    cursor: pointer;
+  }
+  #product-info #product-options #product-action #add-to-cart:hover {
+    opacity: 0.6;
   }
 }
 #product-image-container-arrows {

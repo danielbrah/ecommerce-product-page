@@ -130,11 +130,28 @@
                 {
                     width: 35%;
                     padding: 18px;
+
+                    img
+                    {
+                        cursor: pointer;
+                        transition: opacity 150ms ease;
+                        &:hover
+                        {
+                            opacity: 0.6;
+                        }
+                    }
                 }
 
                 #add-to-cart
                 {
                     width: 65%;
+                    transition: opacity 150ms ease;
+                    cursor: pointer;
+
+                    &:hover
+                    {
+                        opacity: 0.6;
+                    }
                 }
             }
         }
