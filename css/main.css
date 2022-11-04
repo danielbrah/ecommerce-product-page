@@ -304,6 +304,9 @@ header #header__second__section img:nth-child(2) {
   border-radius: 8px;
   padding: 18px 24px;
 }
+#product-info #product-options #product-action #quantity > * {
+  user-select: none;
+}
 #product-info #product-options #product-action #add-to-cart {
   display: flex;
   align-items: center;
