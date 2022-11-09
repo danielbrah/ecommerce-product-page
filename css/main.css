@@ -339,6 +339,10 @@ header #header__second__section img:nth-child(2) {
     border-radius: 10px;
     width: 100%;
     height: 100%;
+    display: none;
+  }
+  #product-info #product-image #product-image-container img.active {
+    display: block;
   }
   #product-info #product-image #product-image-selection {
     display: flex;
@@ -347,6 +351,11 @@ header #header__second__section img:nth-child(2) {
   #product-info #product-image #product-image-selection img {
     width: 88px;
     border-radius: 8px;
+    transition: opacity 100ms ease, border 100ms ease;
+  }
+  #product-info #product-image #product-image-selection img.active {
+    opacity: 0.5;
+    border: solid red;
   }
   #product-info #product-options {
     max-width: 50ch;
