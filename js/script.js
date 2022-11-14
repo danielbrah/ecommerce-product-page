@@ -46,7 +46,6 @@ imageSelection.forEach((element, index) => {
                 else
                 {
                     imageSelection[imgIndex].classList.remove('active')
-                    console.log(imgIndex)
                 }
             })
         }
