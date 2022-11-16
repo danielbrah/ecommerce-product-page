@@ -12,6 +12,15 @@
             position: relative;
             height: 300px;
             overflow: hidden;
+
+            img
+            {
+                display: none;
+                &.active
+                {
+                    display: block;
+                }
+            }
         }
     }
 

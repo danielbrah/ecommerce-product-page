@@ -272,6 +272,12 @@ header #header__second__section img:nth-child(2) {
   height: 300px;
   overflow: hidden;
 }
+#product-info #product-image #product-image-container img {
+  display: none;
+}
+#product-info #product-image #product-image-container img.active {
+  display: block;
+}
 #product-info #product-options {
   display: flex;
   flex-direction: column;
