@@ -5,7 +5,10 @@ const overlay = document.getElementById('overlay')
 const quantity = document.querySelector('[id=quantity] h2')
 const quantityAdd = document.querySelector('[id=quantity] [id=quantity-add]')
 const quantitySubtract = document.querySelector('[id=quantity] [id=quantity-subtract]')
+
+// Image preview and selection
 const imageSelection = Array.from(document.getElementById('product-image-selection').children)
+const imagePreview = Array.from(document.getElementById('product-image-wrapper').children)
 
 navOpen.addEventListener('click', (e) =>{
     navMenu.classList.toggle('active')
@@ -28,7 +31,7 @@ quantitySubtract.addEventListener('click', () =>{
         quantity.textContent = Number(quantity.textContent) - 1
 })
 
-// Image selection
+// Image selection and preview events
 imageSelection.forEach((element, index) => {
     element.addEventListener('click', () => {
         if (element.classList.contains('active'))
@@ -38,6 +41,7 @@ imageSelection.forEach((element, index) => {
         else
         {
             element.classList.toggle('active')
+            imagePreview[index].classList.toggle('active') 
             imageSelection.forEach((element, imgIndex)=>{
                 if (imgIndex == index)
                 {
@@ -46,6 +50,7 @@ imageSelection.forEach((element, index) => {
                 else
                 {
                     imageSelection[imgIndex].classList.remove('active')
+                    imagePreview[imgIndex].classList.remove('active')
                 }
             })
         }
