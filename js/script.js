@@ -5,6 +5,7 @@ const overlay = document.getElementById('overlay')
 const quantity = document.querySelector('[id=quantity] h2')
 const quantityAdd = document.querySelector('[id=quantity] [id=quantity-add]')
 const quantitySubtract = document.querySelector('[id=quantity] [id=quantity-subtract]')
+const html = document.querySelector('html')
 
 // cart
 const cartBtn = document.getElementById('cart-btn')
@@ -67,6 +68,15 @@ imageSelection.forEach((element, index) => {
 // cart menu
 cartBtn.addEventListener('click', () =>{
     cartMenu.classList.toggle('active')
+})
+
+html.addEventListener('click', (e) =>{
+    if(e.target != cartBtn)
+    {
+        console.log('outside')
+        if(cartMenu.classList.contains('active'))
+            cartMenu.classList.toggle('active')
+    }
 })
 
 
