@@ -10,6 +10,18 @@
     font-weight: 700;
 }
 
+#cart
+{
+    #cart-list
+    {
+        h3
+        {
+            color: map-get($grayish-blue, "dark");
+            font-weight: 700;
+        }
+    }
+}
+
 #product-options
 {
     #company-name

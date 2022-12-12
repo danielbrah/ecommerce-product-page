@@ -6,13 +6,19 @@ const quantity = document.querySelector('[id=quantity] h2')
 const quantityAdd = document.querySelector('[id=quantity] [id=quantity-add]')
 const quantitySubtract = document.querySelector('[id=quantity] [id=quantity-subtract]')
 
+// cart
+const cartBtn = document.getElementById('cart-btn')
+const cartMenu = document.getElementById('cart')
+
 // Image preview and selection
 const imageSelection = Array.from(document.getElementById('product-image-selection').children)
 const imagePreview = Array.from(document.getElementById('product-image-wrapper').children)
 
+// navigation
 navOpen.addEventListener('click', (e) =>{
     navMenu.classList.toggle('active')
     overlay.classList.toggle('active')
+    cartMenu.classList.remove('active')
 })
 
 navClose.addEventListener('click', (e) =>{
@@ -20,6 +26,7 @@ navClose.addEventListener('click', (e) =>{
     overlay.classList.toggle('active')
 })
 
+// quantity
 quantityAdd.addEventListener('click', () =>{
     quantity.textContent = Number(quantity.textContent) + 1
 })
@@ -55,6 +62,11 @@ imageSelection.forEach((element, index) => {
             })
         }
     })
+})
+
+// cart menu
+cartBtn.addEventListener('click', () =>{
+    cartMenu.classList.toggle('active')
 })
 
 

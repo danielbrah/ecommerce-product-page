@@ -33,6 +33,11 @@
   font-weight: 700;
 }
 
+#cart #cart-list h3 {
+  color: hsl(219deg, 9%, 45%);
+  font-weight: 700;
+}
+
 #product-options #company-name {
   color: hsl(26deg, 100%, 55%);
   text-transform: uppercase;
@@ -408,7 +413,7 @@ header #header__second__section img:nth-child(2) {
 
 #cart {
   position: absolute;
-  top: 75px;
+  top: 70px;
   left: 50%;
   right: 0;
   background: white;
@@ -416,16 +421,25 @@ header #header__second__section img:nth-child(2) {
   transform: translateX(-50%);
   z-index: 1;
   border-radius: 8px;
+  box-shadow: 0 16px 28px 2px hsl(0deg, 0%, 61.25%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 150ms ease, top 150ms ease, visibility 150ms ease;
 }
 #cart #cart-title-container {
   padding: 33.5px 30px;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid hsl(220deg, 14%, 75%);
 }
 #cart #cart-list {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 188px;
+}
+#cart.active {
+  top: 75px;
+  opacity: 1;
+  visibility: visible;
 }
 
 /*# sourceMappingURL=main.css.map */

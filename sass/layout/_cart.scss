@@ -1,8 +1,9 @@
 @import '../abstracts/mixins';
+@import '../abstracts/colors';
 #cart
 {
     position: absolute;
-    top: 75px;
+    top: 70px;
     left: 50%;
     right: 0;
     background: white;
@@ -10,16 +11,27 @@
     transform: translateX(-50%);
     z-index: 1;
     border-radius: 8px;
+    box-shadow: 0 16px 28px 2px hsl(0, 0%, 49% / 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 150ms ease, top 150ms ease, visibility 150ms ease;
     
     #cart-title-container
     {
         padding: 33.5px 30px;
-        border-bottom: 1px solid grey;
+        border-bottom: 1px solid map-get($grayish-blue, "normal");
     }
 
     #cart-list
     {
         @include center;
         min-height: 188px;
+    }
+
+    &.active
+    {
+        top: 75px;
+        opacity: 1;
+        visibility: visible;
     }
 }
