@@ -1,0 +1,25 @@
+@import '../abstracts/mixins';
+#cart
+{
+    position: absolute;
+    top: 75px;
+    left: 50%;
+    right: 0;
+    background: white;
+    width: 95%;
+    transform: translateX(-50%);
+    z-index: 1;
+    border-radius: 8px;
+    
+    #cart-title-container
+    {
+        padding: 33.5px 30px;
+        border-bottom: 1px solid grey;
+    }
+
+    #cart-list
+    {
+        @include center;
+        min-height: 188px;
+    }
+}
