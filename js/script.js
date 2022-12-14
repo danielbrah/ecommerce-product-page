@@ -10,6 +10,8 @@ const html = document.querySelector('html')
 // cart
 const cartBtn = document.getElementById('cart-btn')
 const cartMenu = document.getElementById('cart')
+const cartList = document.getElementById('cart-list')
+const cartTitle = document.getElementById('cart-title-container')
 
 // Image preview and selection
 const imageSelection = Array.from(document.getElementById('product-image-selection').children)
@@ -71,11 +73,17 @@ cartBtn.addEventListener('click', () =>{
 })
 
 html.addEventListener('click', (e) =>{
-    if(e.target != cartBtn)
+    if (e.target == cartList || e.target == cartTitle) 
     {
-        console.log('outside')
-        if(cartMenu.classList.contains('active'))
-            cartMenu.classList.toggle('active')
+        return
+    }
+    else
+    {
+        if(e.target != cartBtn)
+        {
+            if(cartMenu.classList.contains('active'))
+                cartMenu.classList.toggle('active')
+        }
     }
 })
 
