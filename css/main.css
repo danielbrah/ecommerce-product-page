@@ -318,6 +318,7 @@ header #header__second__section img:nth-child(2) {
 }
 #product-info #product-options #product-action #quantity > * {
   user-select: none;
+  touch-action: manipulation;
 }
 #product-info #product-options #product-action #add-to-cart {
   display: flex;
