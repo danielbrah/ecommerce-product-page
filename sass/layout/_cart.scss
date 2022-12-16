@@ -11,7 +11,7 @@
     transform: translateX(-50%);
     z-index: 1;
     border-radius: 8px;
-    box-shadow: 0 16px 28px 2px hsl(0, 0%, 49% / 0.8);
+    box-shadow: 0 16px 28px 2px hsl(0, 0%, 49%);
     opacity: 0;
     visibility: hidden;
     transition: opacity 150ms ease, top 150ms ease, visibility 150ms ease;

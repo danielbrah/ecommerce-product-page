@@ -83,7 +83,7 @@
   }
 }
 #overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -190,7 +190,7 @@ header #header__second__section img:nth-child(2) {
 #nav-menu {
   display: flex;
   flex-flow: column;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: -250px;
   height: 100%;
@@ -421,7 +421,7 @@ header #header__second__section img:nth-child(2) {
   transform: translateX(-50%);
   z-index: 1;
   border-radius: 8px;
-  box-shadow: 0 16px 28px 2px hsl(0deg, 0%, 61.25%);
+  box-shadow: 0 16px 28px 2px hsl(0deg, 0%, 49%);
   opacity: 0;
   visibility: hidden;
   transition: opacity 150ms ease, top 150ms ease, visibility 150ms ease;
