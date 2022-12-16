@@ -72,15 +72,42 @@ cartBtn.addEventListener('click', () =>{
     cartMenu.classList.toggle('active')
 })
 
-// html.addEventListener('click', (e) =>{
-//     if (e.target == cartBtn)
-//     {
-//         return
-//     }
-//     else
-//     {
+const checkParent = function(element)
+{
+    let parent = element.parentElement
+    if (parent == cartMenu)
+    {
+        return false
+    }
+    else
+    {
+        while (parent != cartMenu)
+        {
+            parent = parent.parentElement
+            if (parent == html)
+            {
+                return true
+            }
+        }
+        return false
+    }
+}
 
-//     }
-// })
+html.addEventListener('click', (e) =>{
+    if (e.target == cartBtn)
+    {
+        return
+    }
+    else
+    {
+        if (cartMenu.classList.contains('active'))
+        {
+            if (checkParent(e.target))
+                cartMenu.classList.remove('active')
+            else 
+                return
+        }
+    }
+})
 
 
