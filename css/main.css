@@ -446,4 +446,17 @@ header #header__second__section img:nth-child(2) {
   visibility: visible;
 }
 
+@media only screen and (min-width: 915px) {
+  #cart {
+    max-width: none;
+    width: 360px;
+    left: 30%;
+  }
+  #cart.active {
+    top: 85px;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */
