@@ -15,6 +15,7 @@
 
 #container {
   z-index: 1;
+  height: 100vh;
 }
 
 @media only screen and (min-width: 915px) {
@@ -365,6 +366,7 @@ header #header__second__section img:nth-child(2) {
     width: 88px;
     border-radius: 8px;
     transition: opacity 100ms ease, border 100ms ease;
+    cursor: pointer;
   }
   #product-info #product-image #product-image-selection img.active {
     opacity: 0.5;
@@ -418,7 +420,8 @@ header #header__second__section img:nth-child(2) {
   left: 50%;
   right: 0;
   background: white;
-  width: 95%;
+  max-width: 100%;
+  width: 356.25px;
   transform: translateX(-50%);
   z-index: 1;
   border-radius: 8px;
