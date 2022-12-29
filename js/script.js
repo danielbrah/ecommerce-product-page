@@ -12,6 +12,7 @@ const cartBtn = document.getElementById('cart-btn')
 const cartMenu = document.getElementById('cart')
 const cartList = document.getElementById('cart-list')
 const cartTitle = document.getElementById('cart-title-container')
+const addToCart = document.getElementById('add-to-cart')
 
 // Image preview and selection
 const imageSelection = Array.from(document.getElementById('product-image-selection').children)
@@ -109,5 +110,15 @@ html.addEventListener('click', (e) =>{
         }
     }
 })
+
+// addToCart.addEventListener('click', () =>{
+//     if (quantity.textContent == 0)
+//     {
+//         console.log('nothing')
+//     }
+//     else{
+        
+//     }
+// })
 
 

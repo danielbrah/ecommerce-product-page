@@ -130,6 +130,15 @@
     display: none;
   }
 }
+.item {
+  display: flex;
+}
+.item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -433,12 +442,6 @@ header #header__second__section img:nth-child(2) {
 #cart #cart-title-container {
   padding: 33.5px 30px;
   border-bottom: 1px solid hsl(220deg, 14%, 75%);
-}
-#cart #cart-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 188px;
 }
 #cart.active {
   top: 75px;
