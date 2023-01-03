@@ -19,6 +19,13 @@
             color: map-get($grayish-blue, "dark");
             font-weight: 700;
         }
+
+        #checkout-btn
+        {
+            p{
+                font-weight: 700;
+            }
+        }
     }
 }
 

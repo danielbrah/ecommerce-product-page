@@ -1,0 +1,11 @@
+@import '../abstracts/colors';
+@import '../abstracts/mixins';
+#checkout-btn
+{
+    @include center;
+    color: map-get($grayish-blue, "light");
+    background-color: map-get($orange, 'normal');
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+}

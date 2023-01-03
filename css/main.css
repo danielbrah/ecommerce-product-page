@@ -38,6 +38,9 @@
   color: hsl(219deg, 9%, 45%);
   font-weight: 700;
 }
+#cart #cart-list #checkout-btn p {
+  font-weight: 700;
+}
 
 #product-options #company-name {
   color: hsl(26deg, 100%, 55%);
@@ -148,6 +151,17 @@
 }
 .item .item-info strong {
   color: black;
+}
+
+#checkout-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: hsl(223deg, 64%, 98%);
+  background-color: hsl(26deg, 100%, 55%);
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
 }
 
 header {
@@ -455,6 +469,9 @@ header #header__second__section img:nth-child(2) {
   border-bottom: 1px solid hsl(220deg, 14%, 75%);
 }
 #cart #cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   padding: 20px;
 }
 #cart.active {
