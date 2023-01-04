@@ -5,6 +5,7 @@ const overlay = document.getElementById('overlay')
 const quantity = document.querySelector('[id=quantity] h2')
 const quantityAdd = document.querySelector('[id=quantity] [id=quantity-add]')
 const quantitySubtract = document.querySelector('[id=quantity] [id=quantity-subtract]')
+const itemName = document.getElementById('product-name')
 const html = document.querySelector('html')
 
 // cart
@@ -111,14 +112,20 @@ html.addEventListener('click', (e) =>{
     }
 })
 
-// addToCart.addEventListener('click', () =>{
-//     if (quantity.textContent == 0)
-//     {
-//         console.log('nothing')
-//     }
-//     else{
-        
-//     }
-// })
+const addItem = (quantity, price, name) =>
+{
+    console.log(quantity, price.toFixed(2), name)
+}
+
+addToCart.addEventListener('click', () =>{
+    if (Number(quantity.textContent) == 0)
+    {
+        console.log('nothing')
+    }
+    else
+    {
+        addItem(Number(quantity.textContent), 125, itemName.textContent)
+    }
+})
 
 
