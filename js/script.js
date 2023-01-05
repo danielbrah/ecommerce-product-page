@@ -126,16 +126,34 @@ const createItem = (quantity, price, name) =>
     image2.src = 'images/icon-delete.svg'
     image2.alt = 'Delete icon'
 
-    // Creating item text
+    // Creating item text divs
     const itemInfo = document.createElement('div')
     const itemName = document.createElement('p')
     const itemNumbers = document.createElement('div')
+    const itemNumbersInfo = document.createElement('p')
+    const itemPrice = document.createElement('span')
+    const itemQuantity = document.createElement('span')
+    const itemCost = document.createElement('strong')
+
+    // Setting classes
     itemNumbers.className = 'item-numbers'
+    itemPrice.className = 'item-price'
+    itemQuantity.className = 'item-quantity'
+    itemCost.className = 'item-cost'
     itemInfo.className = 'item-info'
+
+    // Setting text
     itemName.textContent = name
+    itemPrice.textContent = `$${price.toFixed(2)} x `
+    itemQuantity.textContent = quantity
+    itemCost.textContent = ` $${(price * quantity).toFixed(2)}`
+
+    itemNumbersInfo.appendChild(itemPrice)
+    itemNumbersInfo.appendChild(itemQuantity)
+    itemNumbersInfo.appendChild(itemCost)
 
     itemInfo.appendChild(itemName)
-    
+    itemInfo.appendChild(itemNumbersInfo)    
 
     // Creating item div
     const item = document.createElement('div')
