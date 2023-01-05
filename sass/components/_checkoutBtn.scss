@@ -3,9 +3,15 @@
 #checkout-btn
 {
     @include center;
+    display: none;
     color: map-get($grayish-blue, "light");
     background-color: map-get($orange, 'normal');
     border-radius: 8px;
     padding: 16px;
     cursor: pointer;
+
+    &.active
+    {
+        display: flex;
+    }
 }

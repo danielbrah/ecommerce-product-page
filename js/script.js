@@ -112,19 +112,52 @@ html.addEventListener('click', (e) =>{
     }
 })
 
-const addItem = (quantity, price, name) =>
+const createItem = (quantity, price, name) =>
 {
-    console.log(quantity, price.toFixed(2), name)
+    // Setting image
+    const image = document.createElement('img')
+    const image2 = document.createElement('img')
+    image.className = 'item-mini-pic'
+    image.src = 'images/image-product-1.jpg'
+    image.width = 50
+    image.height = 50
+    image.alt = 'Image of product 1'
+    
+    image2.src = 'images/icon-delete.svg'
+    image2.alt = 'Delete icon'
+
+    // Creating item text
+    const itemInfo = document.createElement('div')
+    const itemName = document.createElement('p')
+    const itemNumbers = document.createElement('div')
+    itemNumbers.className = 'item-numbers'
+    itemInfo.className = 'item-info'
+    itemName.textContent = name
+
+    itemInfo.appendChild(itemName)
+    
+
+    // Creating item div
+    const item = document.createElement('div')
+    item.className = 'item'
+    item.append(image)
+    item.append(itemInfo)
+    item.append(image2)
+
+    cartList.insertBefore(item, document.getElementById('checkout-btn'))
 }
 
 addToCart.addEventListener('click', () =>{
-    if (Number(quantity.textContent) == 0)
+    if (Number(quantity.textContent) == 0 || cartList.classList.contains('has-item'))
     {
-        console.log('nothing')
+        return
     }
     else
     {
-        addItem(Number(quantity.textContent), 125, itemName.textContent)
+        createItem(Number(quantity.textContent), 125, itemName.textContent)
+        cartList.classList.toggle('has-item')
+        document.getElementById('cart-empty').classList.toggle('active')
+        document.getElementById('checkout-btn').classList.toggle('active')
     }
 })
 

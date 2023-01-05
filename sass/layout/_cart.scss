@@ -29,6 +29,15 @@
         flex-direction: column;
         gap: 16px;
         padding: 20px;
+
+        #cart-empty
+        {
+            display: block;
+            &.active
+            {
+                display: none;
+            }
+        }
     }
 
     &.active
