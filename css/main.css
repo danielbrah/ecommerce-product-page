@@ -152,6 +152,9 @@
 .item .item-info strong {
   color: black;
 }
+.item .item-delete {
+  cursor: pointer;
+}
 
 #checkout-btn {
   display: flex;

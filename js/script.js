@@ -96,9 +96,9 @@ const checkParent = function(element)
 }
 
 html.addEventListener('click', (e) =>{
-    if (e.target == cartBtn)
+    if (e.target == cartBtn || e.target.className == 'item-delete')
     {
-        return
+        return console.log('wassup')
     }
     else
     {
@@ -117,6 +117,7 @@ const createItem = (quantity, price, name) =>
     // Setting image
     const image = document.createElement('img')
     const image2 = document.createElement('img')
+    image2.className = 'item-delete'
     image.className = 'item-mini-pic'
     image.src = 'images/image-product-1.jpg'
     image.width = 50
@@ -162,6 +163,10 @@ const createItem = (quantity, price, name) =>
     item.append(itemInfo)
     item.append(image2)
 
+    image2.addEventListener('click', () =>{
+        item.remove()
+    })
+
     cartList.insertBefore(item, document.getElementById('checkout-btn'))
 }
 
@@ -178,5 +183,7 @@ addToCart.addEventListener('click', () =>{
         document.getElementById('checkout-btn').classList.toggle('active')
     }
 })
+
+
 
 
