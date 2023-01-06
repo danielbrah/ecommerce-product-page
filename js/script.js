@@ -98,7 +98,7 @@ const checkParent = function(element)
 html.addEventListener('click', (e) =>{
     if (e.target == cartBtn || e.target.className == 'item-delete')
     {
-        return console.log('wassup')
+        return
     }
     else
     {
