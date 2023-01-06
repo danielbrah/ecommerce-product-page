@@ -33,11 +33,14 @@ navClose.addEventListener('click', (e) =>{
 
 // quantity
 quantityAdd.addEventListener('click', () =>{
-    quantity.textContent = Number(quantity.textContent) + 1
+    if(isNaN(Number(quantity.textContent)))
+        quantity.textContent = 0
+    else
+        quantity.textContent = Number(quantity.textContent) + 1
 })
 
 quantitySubtract.addEventListener('click', () =>{
-    if (Number(quantity.textContent == 0))
+    if (Number(quantity.textContent == 0) || isNaN(Number(quantity.textContent)))
         return
     else
         quantity.textContent = Number(quantity.textContent) - 1
@@ -163,15 +166,23 @@ const createItem = (quantity, price, name) =>
     item.append(itemInfo)
     item.append(image2)
 
-    image2.addEventListener('click', () =>{
+    image2.addEventListener('click', () =>
+    {
         item.remove()
+        document.getElementById('cart-empty').classList.toggle('active')
+        document.getElementById('checkout-btn').classList.toggle('active')
+        cartList.classList.remove('has-item')
     })
 
     cartList.insertBefore(item, document.getElementById('checkout-btn'))
 }
 
 addToCart.addEventListener('click', () =>{
-    if (Number(quantity.textContent) == 0 || cartList.classList.contains('has-item'))
+    if (isNaN(Number(quantity.textContent)))
+    {
+        return
+    }
+    else if (Number(quantity.textContent) == 0 || cartList.classList.contains('has-item'))
     {
         return
     }
@@ -183,7 +194,3 @@ addToCart.addEventListener('click', () =>{
         document.getElementById('checkout-btn').classList.toggle('active')
     }
 })
-
-
-
-
