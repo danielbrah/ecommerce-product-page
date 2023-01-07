@@ -478,8 +478,11 @@ header #header__second__section img:nth-child(2) {
 #cart #cart-list {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 16px;
   padding: 20px;
+  height: 188px;
 }
 #cart #cart-list #cart-empty {
   display: block;
