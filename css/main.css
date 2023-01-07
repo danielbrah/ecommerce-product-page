@@ -484,6 +484,11 @@ header #header__second__section img:nth-child(2) {
   padding: 20px;
   height: 188px;
 }
+#cart #cart-list.has-item {
+  align-items: normal;
+  justify-content: normal;
+  height: auto;
+}
 #cart #cart-list #cart-empty {
   display: block;
 }

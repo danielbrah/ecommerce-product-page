@@ -33,6 +33,13 @@
         padding: 20px;
         height: 188px;
 
+        &.has-item
+        {
+            align-items: normal;
+            justify-content: normal;
+            height: auto;
+        }
+
         #cart-empty
         {
             display: block;
