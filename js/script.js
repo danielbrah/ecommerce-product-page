@@ -77,24 +77,31 @@ cartBtn.addEventListener('click', () =>{
     cartMenu.classList.toggle('active')
 })
 
-const checkParent = function(element)
+const checkParent = function(element, target)
 {
-    let parent = element.parentElement
-    if (parent == cartMenu)
+    if (element == target)
     {
         return false
     }
     else
     {
-        while (parent != cartMenu)
+        let parent = element.parentElement
+        if (parent == target)
         {
-            parent = parent.parentElement
-            if (parent == html)
-            {
-                return true
-            }
+            return false
         }
-        return false
+        else
+        {
+            while (parent != target)
+            {
+                parent = parent.parentElement
+                if (parent == html)
+                {
+                    return true
+                }
+            }
+            return false
+        }
     }
 }
 
@@ -107,7 +114,11 @@ html.addEventListener('click', (e) =>{
     {
         if (cartMenu.classList.contains('active'))
         {
-            if (checkParent(e.target))
+            if(!checkParent(e.target, addToCart))
+            {
+                return
+            }
+            else if (checkParent(e.target, cartMenu))
                 cartMenu.classList.remove('active')
             else 
                 return
