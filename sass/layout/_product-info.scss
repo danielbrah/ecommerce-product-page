@@ -173,12 +173,13 @@
                 #add-to-cart
                 {
                     width: 65%;
-                    transition: opacity 150ms ease;
+                    transition: opacity 150ms ease, box-shadow 150ms ease;
                     cursor: pointer;
 
                     &:hover
                     {
                         opacity: 0.6;
+                        box-shadow: 0 8px 12px 4px map-get($orange, "pale")
                     }
                 }
             }

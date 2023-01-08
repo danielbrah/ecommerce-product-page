@@ -440,11 +440,12 @@ header #header__second__section img:nth-child(2) {
   }
   #product-info #product-options #product-action #add-to-cart {
     width: 65%;
-    transition: opacity 150ms ease;
+    transition: opacity 150ms ease, box-shadow 150ms ease;
     cursor: pointer;
   }
   #product-info #product-options #product-action #add-to-cart:hover {
     opacity: 0.6;
+    box-shadow: 0 8px 12px 4px hsl(25deg, 100%, 94%);
   }
 }
 #product-image-container-arrows {
