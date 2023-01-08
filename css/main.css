@@ -399,6 +399,9 @@ header #header__second__section img:nth-child(2) {
   #product-info #product-image #product-image-container img.active {
     display: block;
   }
+  #product-info #product-image #product-image-container #product-image-wrapper {
+    cursor: pointer;
+  }
   #product-info #product-image #product-image-selection {
     display: flex;
     justify-content: space-between;

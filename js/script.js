@@ -1,3 +1,4 @@
+'use strict';
 const navMenu = document.getElementById('nav-menu')
 const navOpen = document.getElementById('menu-open')
 const navClose = document.getElementById('menu-close')
@@ -18,6 +19,7 @@ const addToCart = document.getElementById('add-to-cart')
 // Image preview and selection
 const imageSelection = Array.from(document.getElementById('product-image-selection').children)
 const imagePreview = Array.from(document.getElementById('product-image-wrapper').children)
+const productImage = document.getElementById('product-image-wrapper')
 
 // navigation
 navOpen.addEventListener('click', (e) =>{
@@ -70,6 +72,11 @@ imageSelection.forEach((element, index) => {
             })
         }
     })
+})
+
+// image lightbox
+productImage.addEventListener('click', () =>{
+    
 })
 
 // cart menu
