@@ -14,7 +14,7 @@
     {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 12px;
 
         #lightbox-svg-wrapper
         {
@@ -30,9 +30,44 @@
                 position: absolute;
                 right: -15px;
                 top: 0;
+
+                svg
+                {
+                    color: white;
+                    transition: color 100ms ease;
+                    cursor: pointer;
+                    &:hover{color: map-get($orange, "normal");}
+                }
+            }
+        }
+
+        #lightbox-image-selection
+        {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 24px;
+            
+            > *{
+                height: 88px;
+                width: 88px;
+                border-radius: 8px;
+
+                &.active
+                {
+                    border: solid 
+                }
+            }
+        }
+
+        #lightbox-image-container
+        {
+            #lightbox-image
+            {
+                border-radius: 16px;
             }
         }
     }
-    // visibility: hidden;
-    // opacity: 0;
+    visibility: hidden;
+    opacity: 0;
 }
