@@ -75,7 +75,8 @@ imageSelection.forEach((element, index) => {
 })
 
 // image lightbox
-productImage.addEventListener('click', () =>{
+
+productImage.addEventListener('click', (e) =>{
     
 })
 
