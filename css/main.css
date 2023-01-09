@@ -526,10 +526,26 @@ header #header__second__section img:nth-child(2) {
   left: 0;
   width: 100%;
   height: 100%;
-  background: black;
-  opacity: 0.75;
-  visibility: hidden;
-  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 2;
+}
+#lightbox #lightbox-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+#lightbox #lightbox-content-wrapper #lightbox-svg-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  height: 40px;
+}
+#lightbox #lightbox-content-wrapper #lightbox-svg-wrapper #lightbox-svg-container {
+  height: 40px;
+  width: 39px;
+  position: absolute;
+  right: -15px;
+  top: 0;
 }
 
 /*# sourceMappingURL=main.css.map */
