@@ -1,98 +1,108 @@
 @import '../abstracts/mixins';
+
 #lightbox
 {
-    @include center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
-    z-index: 2;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 100ms ease, opacity 100ms ease;
+    display: none;
+}
 
-    #lightbox-content-wrapper
+@media only screen and (min-width: 916px)
+{
+    #lightbox
     {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-
-        #lightbox-svg-wrapper
+        display: none;
+        @include center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.75);
+        z-index: 2;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 100ms ease, opacity 100ms ease;
+    
+        #lightbox-content-wrapper
         {
             display: flex;
-            justify-content: flex-end;
-            position: relative;
-            height: 40px;
-
-            #lightbox-svg-container
+            flex-direction: column;
+            gap: 12px;
+    
+            #lightbox-svg-wrapper
             {
+                display: flex;
+                justify-content: flex-end;
+                position: relative;
                 height: 40px;
-                width: 39px;
-                position: absolute;
-                right: -15px;
-                top: 0;
-
-                svg
+    
+                #lightbox-svg-container
                 {
-                    color: white;
-                    transition: color 100ms ease;
-                    cursor: pointer;
-                    &:hover{color: map-get($orange, "normal");}
+                    height: 40px;
+                    width: 39px;
+                    position: absolute;
+                    right: -15px;
+                    top: 0;
+    
+                    svg
+                    {
+                        color: white;
+                        transition: color 100ms ease;
+                        cursor: pointer;
+                        &:hover{color: map-get($orange, "normal");}
+                    }
                 }
             }
-        }
-
-        #lightbox-image-selection
-        {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 24px;
-            
-            > *
+    
+            #lightbox-image-selection
             {
-                height: 88px;
-                width: 88px;
-                border-radius: 8px;
-                position: relative;
-
-                &.active
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+                margin-top: 24px;
+                
+                > *
                 {
+                    height: 88px;
+                    width: 88px;
+                    border-radius: 8px;
+                    position: relative;
+    
+                    &.active
+                    {
+                        .lightbox-image-overlay
+                        {
+                            opacity: 0.5;
+                        }
+    
+                        img{border: solid red;}
+                    }
+    
                     .lightbox-image-overlay
                     {
-                        opacity: 0.5;
+                        position: absolute;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: white;
+                        opacity: 0;
+                        border-radius: 8px;
                     }
-
-                    img{border: solid red;}
-                }
-
-                .lightbox-image-overlay
-                {
-                    position: absolute;
-                    top: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: white;
-                    opacity: 0;
-                    border-radius: 8px;
-                }
-
-                img
-                {
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 8px;
+    
+                    img
+                    {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 8px;
+                    }
                 }
             }
-        }
-
-        #lightbox-image-container
-        {
-            #lightbox-image
+    
+            #lightbox-image-container
             {
-                border-radius: 16px;
+                #lightbox-image
+                {
+                    border-radius: 16px;
+                }
             }
         }
     }

@@ -518,80 +518,87 @@ header #header__second__section img:nth-child(2) {
   }
 }
 #lightbox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.75);
-  z-index: 2;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 100ms ease, opacity 100ms ease;
+  display: none;
 }
-#lightbox #lightbox-content-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-#lightbox #lightbox-content-wrapper #lightbox-svg-wrapper {
-  display: flex;
-  justify-content: flex-end;
-  position: relative;
-  height: 40px;
-}
-#lightbox #lightbox-content-wrapper #lightbox-svg-wrapper #lightbox-svg-container {
-  height: 40px;
-  width: 39px;
-  position: absolute;
-  right: -15px;
-  top: 0;
-}
-#lightbox #lightbox-content-wrapper #lightbox-svg-wrapper #lightbox-svg-container svg {
-  color: white;
-  transition: color 100ms ease;
-  cursor: pointer;
-}
-#lightbox #lightbox-content-wrapper #lightbox-svg-wrapper #lightbox-svg-container svg:hover {
-  color: hsl(26deg, 100%, 55%);
-}
-#lightbox #lightbox-content-wrapper #lightbox-image-selection {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 24px;
-}
-#lightbox #lightbox-content-wrapper #lightbox-image-selection > * {
-  height: 88px;
-  width: 88px;
-  border-radius: 8px;
-  position: relative;
-}
-#lightbox #lightbox-content-wrapper #lightbox-image-selection > *.active .lightbox-image-overlay {
-  opacity: 0.5;
-}
-#lightbox #lightbox-content-wrapper #lightbox-image-selection > *.active img {
-  border: solid red;
-}
-#lightbox #lightbox-content-wrapper #lightbox-image-selection > * .lightbox-image-overlay {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: white;
-  opacity: 0;
-  border-radius: 8px;
-}
-#lightbox #lightbox-content-wrapper #lightbox-image-selection > * img {
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-}
-#lightbox #lightbox-content-wrapper #lightbox-image-container #lightbox-image {
-  border-radius: 16px;
+
+@media only screen and (min-width: 916px) {
+  #lightbox {
+    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 2;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 100ms ease, opacity 100ms ease;
+  }
+  #lightbox #lightbox-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  #lightbox #lightbox-content-wrapper #lightbox-svg-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    height: 40px;
+  }
+  #lightbox #lightbox-content-wrapper #lightbox-svg-wrapper #lightbox-svg-container {
+    height: 40px;
+    width: 39px;
+    position: absolute;
+    right: -15px;
+    top: 0;
+  }
+  #lightbox #lightbox-content-wrapper #lightbox-svg-wrapper #lightbox-svg-container svg {
+    color: white;
+    transition: color 100ms ease;
+    cursor: pointer;
+  }
+  #lightbox #lightbox-content-wrapper #lightbox-svg-wrapper #lightbox-svg-container svg:hover {
+    color: hsl(26deg, 100%, 55%);
+  }
+  #lightbox #lightbox-content-wrapper #lightbox-image-selection {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 24px;
+  }
+  #lightbox #lightbox-content-wrapper #lightbox-image-selection > * {
+    height: 88px;
+    width: 88px;
+    border-radius: 8px;
+    position: relative;
+  }
+  #lightbox #lightbox-content-wrapper #lightbox-image-selection > *.active .lightbox-image-overlay {
+    opacity: 0.5;
+  }
+  #lightbox #lightbox-content-wrapper #lightbox-image-selection > *.active img {
+    border: solid red;
+  }
+  #lightbox #lightbox-content-wrapper #lightbox-image-selection > * .lightbox-image-overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 0;
+    border-radius: 8px;
+  }
+  #lightbox #lightbox-content-wrapper #lightbox-image-selection > * img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+  }
+  #lightbox #lightbox-content-wrapper #lightbox-image-container #lightbox-image {
+    border-radius: 16px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
