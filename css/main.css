@@ -530,6 +530,7 @@ header #header__second__section img:nth-child(2) {
   z-index: 2;
   visibility: hidden;
   opacity: 0;
+  transition: visibility 100ms ease, opacity 100ms ease;
 }
 #lightbox #lightbox-content-wrapper {
   display: flex;

@@ -20,6 +20,7 @@ const addToCart = document.getElementById('add-to-cart')
 const imageSelection = Array.from(document.getElementById('product-image-selection').children)
 const imagePreview = Array.from(document.getElementById('product-image-wrapper').children)
 const productImage = document.getElementById('product-image-wrapper')
+const lightbox = document.getElementById('lightbox')
 
 // navigation
 navOpen.addEventListener('click', (e) =>{
@@ -75,9 +76,14 @@ imageSelection.forEach((element, index) => {
 })
 
 // image lightbox
-
 productImage.addEventListener('click', (e) =>{
-    
+    lightbox.style.visibility = 'visible'
+    lightbox.style.opacity = '1'
+})
+
+document.getElementById('lightbox-svg-container').addEventListener('click', () =>{
+    lightbox.style.visibility = 'hidden'
+    lightbox.style.opacity = '0'
 })
 
 // cart menu
