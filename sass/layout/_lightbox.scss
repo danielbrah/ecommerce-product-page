@@ -51,14 +51,39 @@
             gap: 30px;
             margin-top: 24px;
             
-            > *{
+            > *
+            {
                 height: 88px;
                 width: 88px;
                 border-radius: 8px;
+                position: relative;
 
                 &.active
                 {
-                    border: solid 
+                    .lightbox-image-overlay
+                    {
+                        opacity: 0.5;
+                    }
+
+                    img{border: solid red;}
+                }
+
+                .lightbox-image-overlay
+                {
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: white;
+                    opacity: 0;
+                    border-radius: 8px;
+                }
+
+                img
+                {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 8px;
                 }
             }
         }

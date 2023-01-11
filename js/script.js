@@ -20,6 +20,7 @@ const addToCart = document.getElementById('add-to-cart')
 const imageSelection = Array.from(document.getElementById('product-image-selection').children)
 const imagePreview = Array.from(document.getElementById('product-image-wrapper').children)
 const productImage = document.getElementById('product-image-wrapper')
+const lightboxImageSelection = Array.from(document.getElementById('lightbox-image-selection').children)
 const lightbox = document.getElementById('lightbox')
 
 // navigation
@@ -76,14 +77,32 @@ imageSelection.forEach((element, index) => {
 })
 
 // image lightbox
-productImage.addEventListener('click', (e) =>{
-    lightbox.style.visibility = 'visible'
-    lightbox.style.opacity = '1'
-})
+if(window.innerWidth > 915)
+{
+    productImage.addEventListener('click', (e) =>{
+        lightbox.style.visibility = 'visible'
+        lightbox.style.opacity = '1'
+    })
+    
+    document.getElementById('lightbox-svg-container').addEventListener('click', () =>{
+        lightbox.style.visibility = 'hidden'
+        lightbox.style.opacity = '0'
+    })
+}
 
-document.getElementById('lightbox-svg-container').addEventListener('click', () =>{
-    lightbox.style.visibility = 'hidden'
-    lightbox.style.opacity = '0'
+window.addEventListener('resize', () =>{
+    if(window.innerWidth > 915)
+    {
+        productImage.addEventListener('click', (e) =>{
+            lightbox.style.visibility = 'visible'
+            lightbox.style.opacity = '1'
+        })
+        
+        document.getElementById('lightbox-svg-container').addEventListener('click', () =>{
+            lightbox.style.visibility = 'hidden'
+            lightbox.style.opacity = '0'
+        })
+    }
 })
 
 // cart menu
