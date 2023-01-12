@@ -596,8 +596,12 @@ header #header__second__section img:nth-child(2) {
     height: 100%;
     border-radius: 8px;
   }
-  #lightbox #lightbox-content-wrapper #lightbox-image-container #lightbox-image {
+  #lightbox #lightbox-content-wrapper #lightbox-image-container .lightbox-image {
     border-radius: 16px;
+    display: none;
+  }
+  #lightbox #lightbox-content-wrapper #lightbox-image-container .lightbox-image.active {
+    display: block;
   }
 }
 

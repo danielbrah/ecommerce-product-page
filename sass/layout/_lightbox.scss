@@ -99,9 +99,15 @@
     
             #lightbox-image-container
             {
-                #lightbox-image
+                .lightbox-image
                 {
                     border-radius: 16px;
+                    display: none;
+
+                    &.active
+                    {
+                        display: block;
+                    }
                 }
             }
         }

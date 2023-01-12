@@ -19,8 +19,9 @@ const addToCart = document.getElementById('add-to-cart')
 // Image preview and selection
 const imageSelection = Array.from(document.getElementById('product-image-selection').children)
 const imagePreview = Array.from(document.getElementById('product-image-wrapper').children)
-const productImage = document.getElementById('product-image-wrapper')
 const lightboxImageSelection = Array.from(document.getElementById('lightbox-image-selection').children)
+const lightboxImagePreview = Array.from(document.getElementById('lightbox-image-container').children)
+const productImage = document.getElementById('product-image-wrapper')
 const lightbox = document.getElementById('lightbox')
 
 // navigation
@@ -91,6 +92,31 @@ document.getElementById('lightbox-svg-container').addEventListener('click', () =
     lightbox.style.opacity = '0'
 })
 
+
+lightboxImageSelection.forEach((element, index) =>{
+    element.addEventListener('click', () =>{
+        if (element.classList.contains('active'))
+        {
+            return
+        }
+        else
+        {
+            element.classList.toggle('active')
+            lightboxImagePreview[index].classList.toggle('active') 
+            lightboxImageSelection.forEach((element, imgIndex)=>{
+                if (imgIndex == index)
+                {
+                    return
+                }
+                else
+                {
+                    lightboxImageSelection[imgIndex].classList.remove('active')
+                    lightboxImagePreview[imgIndex].classList.remove('active')
+                }
+            })
+        }
+    })
+})
 
 // cart menu
 cartBtn.addEventListener('click', () =>{
