@@ -51,31 +51,35 @@ quantitySubtract.addEventListener('click', () =>{
         quantity.textContent = Number(quantity.textContent) - 1
 })
 
-// Image selection and preview events
-imageSelection.forEach((element, index) => {
-    element.addEventListener('click', () => {
-        if (element.classList.contains('active'))
-        {
-            return
-        }
-        else
-        {
-            element.classList.toggle('active')
-            imagePreview[index].classList.toggle('active') 
-            imageSelection.forEach((element, imgIndex)=>{
-                if (imgIndex == index)
-                {
-                    return
-                }
-                else
-                {
-                    imageSelection[imgIndex].classList.remove('active')
-                    imagePreview[imgIndex].classList.remove('active')
-                }
-            })
-        }
+// Image selection and preview events function
+const imagePreviewing = (selection, preview) =>{
+    selection.forEach((element, index) => {
+        element.addEventListener('click', () => {
+            if (element.classList.contains('active'))
+            {
+                return
+            }
+            else
+            {
+                element.classList.toggle('active')
+                preview[index].classList.toggle('active') 
+                selection.forEach((element, imgIndex)=>{
+                    if (imgIndex == index)
+                    {
+                        return
+                    }
+                    else
+                    {
+                        selection[imgIndex].classList.remove('active')
+                        preview[imgIndex].classList.remove('active')
+                    }
+                })
+            }
+        })
     })
-})
+}
+
+imagePreviewing(imageSelection, imagePreview)
 
 // image lightbox
 productImage.addEventListener('click', (e) =>{
@@ -92,31 +96,7 @@ document.getElementById('lightbox-svg-container').addEventListener('click', () =
     lightbox.style.opacity = '0'
 })
 
-
-lightboxImageSelection.forEach((element, index) =>{
-    element.addEventListener('click', () =>{
-        if (element.classList.contains('active'))
-        {
-            return
-        }
-        else
-        {
-            element.classList.toggle('active')
-            lightboxImagePreview[index].classList.toggle('active') 
-            lightboxImageSelection.forEach((element, imgIndex)=>{
-                if (imgIndex == index)
-                {
-                    return
-                }
-                else
-                {
-                    lightboxImageSelection[imgIndex].classList.remove('active')
-                    lightboxImagePreview[imgIndex].classList.remove('active')
-                }
-            })
-        }
-    })
-})
+imagePreviewing(lightboxImageSelection, lightboxImagePreview)
 
 // cart menu
 cartBtn.addEventListener('click', () =>{

@@ -575,6 +575,7 @@ header #header__second__section img:nth-child(2) {
     width: 88px;
     border-radius: 8px;
     position: relative;
+    cursor: pointer;
   }
   #lightbox #lightbox-content-wrapper #lightbox-image-selection > *.active .lightbox-image-overlay {
     opacity: 0.5;
