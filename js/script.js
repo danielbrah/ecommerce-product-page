@@ -82,11 +82,28 @@ const imagePreviewing = (selection, preview) =>{
 imagePreviewing(imageSelection, imagePreview)
 
 // image lightbox
+const setLightboxPreviewImage = (element, prevArr, selectArr) =>
+{
+    for(let i = 0; i < prevArr.length; i++)
+    {
+        prevArr[i].classList.remove('active')
+        selectArr[i].classList.remove('active')
+
+        if (element.getAttribute('src') == prevArr[i].getAttribute('src'))
+        {
+            prevArr[i].classList.toggle('active')
+            selectArr[i].classList.toggle('active')
+        }
+    }
+
+}
+
 productImage.addEventListener('click', (e) =>{
     if (window.innerWidth > 915)
     {
         lightbox.style.visibility = 'visible'
         lightbox.style.opacity = '1'
+        setLightboxPreviewImage(e.target, lightboxImagePreview, lightboxImageSelection)
     }
     else{return}
 })
