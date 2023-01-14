@@ -1,0 +1,19 @@
+#warning-message
+{
+    position: absolute;
+    color: black;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+    z-index: 1;
+    padding: 16px;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 150ms ease;
+    p
+    {
+        font-size: 32px;
+    }
+}

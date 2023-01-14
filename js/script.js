@@ -7,8 +7,9 @@ const quantity = document.querySelector('[id=quantity] h2')
 const quantityAdd = document.querySelector('[id=quantity] [id=quantity-add]')
 const quantitySubtract = document.querySelector('[id=quantity] [id=quantity-subtract]')
 const itemName = document.getElementById('product-name')
+const warning = document.getElementById('warning-message')
+const warningMessage = document.querySelector('[id=warning-message] p')
 const html = document.querySelector('html')
-
 // cart
 const cartBtn = document.getElementById('cart-btn')
 const cartMenu = document.getElementById('cart')
@@ -154,7 +155,8 @@ const checkParent = function(element, target)
     }
 }
 
-html.addEventListener('click', (e) =>{
+html.addEventListener('click', (e) =>
+{
     if (e.target == cartBtn || e.target.className == 'item-delete')
     {
         return
@@ -237,14 +239,28 @@ const createItem = (quantity, price, name) =>
     cartList.insertBefore(item, document.getElementById('checkout-btn'))
 }
 
-addToCart.addEventListener('click', () =>{
+const showWarning = message => 
+{
+    warningMessage.textContent = message
+    warning.style.opacity = '1'
+
+    setTimeout(() =>{ 
+        warning.style.opacity = '0'
+    }, 2000)
+}
+
+addToCart.addEventListener('click', () =>
+{
     if (isNaN(Number(quantity.textContent)))
     {
         return
     }
     else if (Number(quantity.textContent) == 0 || cartList.classList.contains('has-item'))
     {
-        return
+        if(Number(quantity.textContent) == 0)
+            showWarning('No quantity entered!')
+        else
+            showWarning('Item already added to cart!')
     }
     else
     {
