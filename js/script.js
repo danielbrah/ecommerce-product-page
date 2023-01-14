@@ -108,9 +108,15 @@ productImage.addEventListener('click', (e) =>{
     else{return}
 })
 
-document.getElementById('lightbox-svg-container').addEventListener('click', () =>{
+const hideLightbox = () =>{
     lightbox.style.visibility = 'hidden'
     lightbox.style.opacity = '0'
+}
+
+document.getElementById('lightbox-svg-container').addEventListener('click', hideLightbox)
+document.addEventListener('keydown', e =>{
+    if (e.key == 'Escape' && lightbox.style.opacity != 0)
+        hideLightbox()
 })
 
 imagePreviewing(lightboxImageSelection, lightboxImagePreview)
