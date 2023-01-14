@@ -21,7 +21,16 @@ const addToCart = document.getElementById('add-to-cart')
 const imageSelection = Array.from(document.getElementById('product-image-selection').children)
 const imagePreview = Array.from(document.getElementById('product-image-wrapper').children)
 const lightboxImageSelection = Array.from(document.getElementById('lightbox-image-selection').children)
-const lightboxImagePreview = Array.from(document.getElementById('lightbox-image-container').children)
+
+// Sets up array
+const lightboxImagePreview = []
+for(let i = 0; i < Array.from(document.getElementById('lightbox-image-container').children).length; i++)
+{
+    const item = Array.from(document.getElementById('lightbox-image-container').children)[i]
+    if(item.tagName == 'IMG')
+        lightboxImagePreview.push(item)
+}
+
 const productImage = document.getElementById('product-image-wrapper')
 const lightbox = document.getElementById('lightbox')
 
@@ -96,7 +105,6 @@ const setLightboxPreviewImage = (element, prevArr, selectArr) =>
             selectArr[i].classList.toggle('active')
         }
     }
-
 }
 
 productImage.addEventListener('click', (e) =>{

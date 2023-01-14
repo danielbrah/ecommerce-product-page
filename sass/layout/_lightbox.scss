@@ -100,6 +100,7 @@
     
             #lightbox-image-container
             {
+                position: relative;
                 .lightbox-image
                 {
                     border-radius: 16px;
@@ -108,6 +109,25 @@
                     &.active
                     {
                         display: block;
+                    }
+                }
+
+                #lightbox-arrows
+                {
+                    @include center;
+                    justify-content: space-between;
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 110%;
+                    height: 100%;
+
+                    .arrow
+                    {
+                        cursor: pointer;
+                        svg{transition: color 100ms ease;}
+                        &:hover svg{color: map-get($orange, 'normal');}
                     }
                 }
             }

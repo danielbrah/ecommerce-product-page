@@ -132,6 +132,20 @@
   .arrow {
     display: none;
   }
+  #lightbox-arrows .arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+  }
+  #lightbox-arrows .arrow svg {
+    position: relative;
+    left: -2px;
+  }
 }
 .item {
   display: flex;
@@ -615,12 +629,36 @@ header #header__second__section img:nth-child(2) {
     height: 100%;
     border-radius: 8px;
   }
+  #lightbox #lightbox-content-wrapper #lightbox-image-container {
+    position: relative;
+  }
   #lightbox #lightbox-content-wrapper #lightbox-image-container .lightbox-image {
     border-radius: 16px;
     display: none;
   }
   #lightbox #lightbox-content-wrapper #lightbox-image-container .lightbox-image.active {
     display: block;
+  }
+  #lightbox #lightbox-content-wrapper #lightbox-image-container #lightbox-arrows {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110%;
+    height: 100%;
+  }
+  #lightbox #lightbox-content-wrapper #lightbox-image-container #lightbox-arrows .arrow {
+    cursor: pointer;
+  }
+  #lightbox #lightbox-content-wrapper #lightbox-image-container #lightbox-arrows .arrow svg {
+    transition: color 100ms ease;
+  }
+  #lightbox #lightbox-content-wrapper #lightbox-image-container #lightbox-arrows .arrow:hover svg {
+    color: hsl(26deg, 100%, 55%);
   }
 }
 

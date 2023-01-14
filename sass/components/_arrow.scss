@@ -20,4 +20,22 @@
     {
         display: none;
     }
+
+    #lightbox-arrows
+    {
+        .arrow
+        {
+            @include center;
+            position: relative;
+            background: white;
+            // padding: 8px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            svg{
+                position: relative;
+                left: -2px;
+            }
+        }
+    }
 }
