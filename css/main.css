@@ -634,6 +634,7 @@ header #header__second__section img:nth-child(2) {
   }
   #lightbox #lightbox-content-wrapper #lightbox-image-container .lightbox-image {
     border-radius: 16px;
+    user-select: none;
     display: none;
   }
   #lightbox #lightbox-content-wrapper #lightbox-image-container .lightbox-image.active {
