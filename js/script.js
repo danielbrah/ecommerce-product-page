@@ -18,6 +18,9 @@ const cartTitle = document.getElementById('cart-title-container')
 const addToCart = document.getElementById('add-to-cart')
 
 // Image preview and selection
+let activeImage = 0
+let activeLightboxImage = 0
+const imageSelectionArrows = Array.from(document.getElementById('lightbox-arrows').children)
 const imageSelection = Array.from(document.getElementById('product-image-selection').children)
 const imagePreview = Array.from(document.getElementById('product-image-wrapper').children)
 const lightboxImageSelection = Array.from(document.getElementById('lightbox-image-selection').children)
@@ -89,9 +92,36 @@ const imagePreviewing = (selection, preview) =>{
     })
 }
 
-imagePreviewing(imageSelection, imagePreview)
+const findActivePreviewImage = () =>{
+    let activeElement
+    lightboxImagePreview.forEach(element =>{
+        if(element.classList.contains('active'))
+        {
+            activeElement = element
+        } 
+    })
+    return activeElement
+}
 
-// image lightbox
+const carousel = (value) =>
+{
+    const activeElement = findActivePreviewImage()
+    console.log(lightboxImagePreview.indexOf(activeElement))
+    if(value == 1)
+    {
+        if(value + lightboxImagePreview.indexOf(activeElement) > lightboxImagePreview.length - 1) 
+            console.log('start over');
+    }
+}
+
+imageSelectionArrows.forEach(element =>{
+    element.addEventListener('click', () =>{
+        if(element.classList.contains('lightbox-next')) carousel(1)
+        else carousel(-1)
+    })
+})
+
+// image lightboxs
 const setLightboxPreviewImage = (element, prevArr, selectArr) =>
 {
     for(let i = 0; i < prevArr.length; i++)
