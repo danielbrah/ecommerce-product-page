@@ -112,6 +112,11 @@ const carousel = (value) =>
         if(value + lightboxImagePreview.indexOf(activeElement) > lightboxImagePreview.length - 1) 
             console.log('start over');
     }
+    else
+    {
+        if(value + lightboxImagePreview.indexOf(activeElement) < 0) 
+            console.log('start at end');
+    }
 }
 
 imageSelectionArrows.forEach(element =>{
@@ -121,7 +126,8 @@ imageSelectionArrows.forEach(element =>{
     })
 })
 
-// image lightboxs
+// image lightbox
+imagePreviewing(imageSelection, imagePreview)
 const setLightboxPreviewImage = (element, prevArr, selectArr) =>
 {
     for(let i = 0; i < prevArr.length; i++)
@@ -159,6 +165,7 @@ document.addEventListener('keydown', e =>{
 })
 
 imagePreviewing(lightboxImageSelection, lightboxImagePreview)
+
 
 // cart menu
 cartBtn.addEventListener('click', () =>{
