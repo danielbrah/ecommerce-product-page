@@ -110,12 +110,36 @@ const carousel = (value) =>
     if(value == 1)
     {
         if(value + lightboxImagePreview.indexOf(activeElement) > lightboxImagePreview.length - 1) 
-            console.log('start over');
+        {
+            activeElement.classList.remove('active')
+            lightboxImagePreview[0].classList.add('active')
+            lightboxImageSelection[lightboxImagePreview.indexOf(activeElement)].classList.remove('active')
+            lightboxImageSelection[0].classList.add('active')
+        }
+        else
+        {
+            activeElement.classList.remove('active')
+            lightboxImagePreview[lightboxImagePreview.indexOf(activeElement) + 1].classList.add('active')
+            lightboxImageSelection[lightboxImagePreview.indexOf(activeElement)].classList.remove('active')
+            lightboxImageSelection[lightboxImagePreview.indexOf(activeElement) + 1].classList.add('active')
+        }
     }
     else
     {
         if(value + lightboxImagePreview.indexOf(activeElement) < 0) 
-            console.log('start at end');
+        {
+            activeElement.classList.remove('active')
+            lightboxImagePreview[lightboxImagePreview.length - 1].classList.add('active')
+            lightboxImageSelection[lightboxImagePreview.indexOf(activeElement)].classList.remove('active')
+            lightboxImageSelection[lightboxImagePreview.length - 1].classList.add('active')
+        }
+        else
+        {
+            activeElement.classList.remove('active')
+            lightboxImagePreview[lightboxImagePreview.indexOf(activeElement) - 1].classList.add('active')
+            lightboxImageSelection[lightboxImagePreview.indexOf(activeElement)].classList.remove('active')
+            lightboxImageSelection[lightboxImagePreview.indexOf(activeElement) - 1].classList.add('active')
+        }
     }
 }
 
