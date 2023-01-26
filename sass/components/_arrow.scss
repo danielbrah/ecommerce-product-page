@@ -8,6 +8,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    touch-action: manipulation;
     img{
         position: relative;
         left: -2px;
