@@ -20,12 +20,12 @@ const addToCart = document.getElementById('add-to-cart')
 // Image preview and selection
 let activeImage = 0
 let activeLightboxImage = 0
-const imageSelectionArrows = Array.from(document.getElementById('lightbox-arrows').children)
+
 const imageSelection = Array.from(document.getElementById('product-image-selection').children)
 const imagePreview = Array.from(document.getElementById('product-image-wrapper').children)
-const lightboxImageSelection = Array.from(document.getElementById('lightbox-image-selection').children)
 
-// Sets up array
+const lightboxImageSelection = Array.from(document.getElementById('lightbox-image-selection').children)
+// Sets up lightboxImagePreview array
 const lightboxImagePreview = []
 for(let i = 0; i < Array.from(document.getElementById('lightbox-image-container').children).length; i++)
 {
@@ -33,6 +33,14 @@ for(let i = 0; i < Array.from(document.getElementById('lightbox-image-container'
     if(item.tagName == 'IMG')
         lightboxImagePreview.push(item)
 }
+
+const imageSelectionArrows = [
+    {'array': Array.from(document.getElementById('lightbox-arrows').children),
+     'preview' : lightboxImagePreview,
+     'selection' : lightboxImageSelection}, 
+    {'array': Array.from(document.getElementById('product-image-container-arrows').children),
+     'preview' : imagePreview,
+     'selection' : imageSelection}]
 
 const productImage = document.getElementById('product-image-wrapper')
 const lightbox = document.getElementById('lightbox')
@@ -92,9 +100,9 @@ const imagePreviewing = (selection, preview) =>{
     })
 }
 
-const findActivePreviewImage = () =>{
+const findActivePreviewImage = (preview) =>{
     let activeElement
-    lightboxImagePreview.forEach(element =>{
+    preview.forEach(element =>{
         if(element.classList.contains('active'))
         {
             activeElement = element
@@ -103,50 +111,56 @@ const findActivePreviewImage = () =>{
     return activeElement
 }
 
-const carousel = (value) =>
+const carousel = (value, preview, selection) =>
 {
-    const activeElement = findActivePreviewImage()
-    console.log(lightboxImagePreview.indexOf(activeElement))
+    const activeElement = findActivePreviewImage(preview)
+    activeElement.classList.remove('active')
     if(value == 1)
     {
-        if(value + lightboxImagePreview.indexOf(activeElement) > lightboxImagePreview.length - 1) 
+        if(value + preview.indexOf(activeElement) > preview.length - 1) 
         {
-            activeElement.classList.remove('active')
-            lightboxImagePreview[0].classList.add('active')
-            lightboxImageSelection[lightboxImagePreview.indexOf(activeElement)].classList.remove('active')
-            lightboxImageSelection[0].classList.add('active')
+            preview[0].classList.add('active')
+            selection[preview.indexOf(activeElement)].classList.remove('active')
+            selection[0].classList.add('active')
         }
         else
         {
-            activeElement.classList.remove('active')
-            lightboxImagePreview[lightboxImagePreview.indexOf(activeElement) + 1].classList.add('active')
-            lightboxImageSelection[lightboxImagePreview.indexOf(activeElement)].classList.remove('active')
-            lightboxImageSelection[lightboxImagePreview.indexOf(activeElement) + 1].classList.add('active')
+            preview[preview.indexOf(activeElement) + 1].classList.add('active')
+            selection[preview.indexOf(activeElement)].classList.remove('active')
+            selection[preview.indexOf(activeElement) + 1].classList.add('active')
         }
     }
     else
     {
-        if(value + lightboxImagePreview.indexOf(activeElement) < 0) 
+        if(value + preview.indexOf(activeElement) < 0) 
         {
-            activeElement.classList.remove('active')
-            lightboxImagePreview[lightboxImagePreview.length - 1].classList.add('active')
-            lightboxImageSelection[lightboxImagePreview.indexOf(activeElement)].classList.remove('active')
-            lightboxImageSelection[lightboxImagePreview.length - 1].classList.add('active')
+            preview[preview.length - 1].classList.add('active')
+            selection[preview.indexOf(activeElement)].classList.remove('active')
+            selection[preview.length - 1].classList.add('active')
         }
         else
         {
-            activeElement.classList.remove('active')
-            lightboxImagePreview[lightboxImagePreview.indexOf(activeElement) - 1].classList.add('active')
-            lightboxImageSelection[lightboxImagePreview.indexOf(activeElement)].classList.remove('active')
-            lightboxImageSelection[lightboxImagePreview.indexOf(activeElement) - 1].classList.add('active')
+            preview[preview.indexOf(activeElement) - 1].classList.add('active')
+            selection[preview.indexOf(activeElement)].classList.remove('active')
+            selection[preview.indexOf(activeElement) - 1].classList.add('active')
         }
     }
 }
 
-imageSelectionArrows.forEach(element =>{
-    element.addEventListener('click', () =>{
-        if(element.classList.contains('lightbox-next')) carousel(1)
-        else carousel(-1)
+imageSelectionArrows.forEach(obj =>{
+    console.log(obj)
+    /*arrowArr.forEach(element =>{
+        element.
+        element.addEventListener('click', () =>{
+            if(element.classList.contains('lightbox-next') || element.classList.contains('product-next')) carousel(1, element)
+            else carousel(-1)
+        })
+    })*/
+    obj['array'].forEach(element =>{
+        element.addEventListener('click', () =>{
+            if(element.classList.contains('lightbox-next') || element.classList.contains('product-next')) carousel(1, obj.preview, obj.selection)
+            else carousel(-1, obj.preview, obj.selection)
+        })
     })
 })
 
