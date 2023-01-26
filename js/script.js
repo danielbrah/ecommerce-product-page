@@ -148,14 +148,6 @@ const carousel = (value, preview, selection) =>
 }
 
 imageSelectionArrows.forEach(obj =>{
-    console.log(obj)
-    /*arrowArr.forEach(element =>{
-        element.
-        element.addEventListener('click', () =>{
-            if(element.classList.contains('lightbox-next') || element.classList.contains('product-next')) carousel(1, element)
-            else carousel(-1)
-        })
-    })*/
     obj['array'].forEach(element =>{
         element.addEventListener('click', () =>{
             if(element.classList.contains('lightbox-next') || element.classList.contains('product-next')) carousel(1, obj.preview, obj.selection)
