@@ -6,6 +6,9 @@
 
     #product-image
     {
+        > *{
+            touch-action: manipulation;
+        }
         #product-image-container
         {
             @include center;
@@ -103,7 +106,6 @@
             {
                 height: 444px;
                 width: 445px;
-                touch-action: manipulation;
                 img
                 {
                     border-radius: 10px;
