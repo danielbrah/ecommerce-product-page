@@ -8,6 +8,12 @@
     {
         > *{
             touch-action: manipulation;
+            > *{
+                touch-action: manipulation;
+                > *{
+                    touch-action: manipulation;
+                }
+            }
         }
         #product-image-container
         {

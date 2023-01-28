@@ -122,6 +122,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  touch-action: manipulation;
 }
 .arrow img {
   position: relative;
@@ -343,6 +344,15 @@ header #header__second__section img:nth-child(2) {
 #product-info {
   display: flex;
   flex-flow: column;
+}
+#product-info #product-image > * {
+  touch-action: manipulation;
+}
+#product-info #product-image > * > * {
+  touch-action: manipulation;
+}
+#product-info #product-image > * > * > * {
+  touch-action: manipulation;
 }
 #product-info #product-image #product-image-container {
   display: flex;
