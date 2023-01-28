@@ -101,10 +101,11 @@
             #lightbox-image-container
             {
                 position: relative;
+                user-select: none;
                 .lightbox-image
                 {
                     border-radius: 16px;
-                    user-select: none;
+                    // user-select: none;
                     display: none;
 
                     &.active

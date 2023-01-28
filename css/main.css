@@ -449,7 +449,6 @@ header #header__second__section img:nth-child(2) {
     justify-content: space-between;
   }
   #product-info #product-image #product-image-selection img {
-    user-select: none;
     width: 88px;
     border-radius: 8px;
     transition: opacity 100ms ease, border 100ms ease;
@@ -642,10 +641,10 @@ header #header__second__section img:nth-child(2) {
   }
   #lightbox #lightbox-content-wrapper #lightbox-image-container {
     position: relative;
+    user-select: none;
   }
   #lightbox #lightbox-content-wrapper #lightbox-image-container .lightbox-image {
     border-radius: 16px;
-    user-select: none;
     display: none;
   }
   #lightbox #lightbox-content-wrapper #lightbox-image-container .lightbox-image.active {
