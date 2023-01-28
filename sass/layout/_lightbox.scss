@@ -77,6 +77,8 @@
     
                         img{border: solid red;}
                     }
+
+                    &:hover{.lightbox-image-overlay{opacity: 0.6;}}
     
                     .lightbox-image-overlay
                     {
@@ -87,6 +89,7 @@
                         background: white;
                         opacity: 0;
                         border-radius: 8px;
+                        transition: opacity 100ms ease;
                     }
     
                     img
@@ -105,7 +108,6 @@
                 .lightbox-image
                 {
                     border-radius: 16px;
-                    // user-select: none;
                     display: none;
 
                     &.active

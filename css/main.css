@@ -458,6 +458,9 @@ header #header__second__section img:nth-child(2) {
     opacity: 0.5;
     border: solid red;
   }
+  #product-info #product-image #product-image-selection img:hover {
+    opacity: 0.6;
+  }
   #product-info #product-options {
     max-width: 50ch;
   }
@@ -625,6 +628,9 @@ header #header__second__section img:nth-child(2) {
   #lightbox #lightbox-content-wrapper #lightbox-image-selection > *.active img {
     border: solid red;
   }
+  #lightbox #lightbox-content-wrapper #lightbox-image-selection > *:hover .lightbox-image-overlay {
+    opacity: 0.6;
+  }
   #lightbox #lightbox-content-wrapper #lightbox-image-selection > * .lightbox-image-overlay {
     position: absolute;
     top: 0;
@@ -633,6 +639,7 @@ header #header__second__section img:nth-child(2) {
     background: white;
     opacity: 0;
     border-radius: 8px;
+    transition: opacity 100ms ease;
   }
   #lightbox #lightbox-content-wrapper #lightbox-image-selection > * img {
     width: 100%;
