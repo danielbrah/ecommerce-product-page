@@ -136,6 +136,7 @@
                 justify-content: space-between;
 
                 img{
+                    user-select: none;
                     width: 88px;
                     border-radius: 8px;
                     transition: opacity 100ms ease, border 100ms ease;

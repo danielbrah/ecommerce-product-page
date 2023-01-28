@@ -449,6 +449,7 @@ header #header__second__section img:nth-child(2) {
     justify-content: space-between;
   }
   #product-info #product-image #product-image-selection img {
+    user-select: none;
     width: 88px;
     border-radius: 8px;
     transition: opacity 100ms ease, border 100ms ease;
