@@ -86,11 +86,6 @@ class Product{
     }
 }
 
-class Lightbox
-{
-    
-}
-
 // Navigation components
 const navMenu = document.getElementById('nav-menu')
 const navOpen = document.getElementById('menu-open')
@@ -295,62 +290,23 @@ document.addEventListener('keydown', e =>{
 imagePreviewing(lightboxImageSelection, lightboxImagePreview)
 
 
-// cart menu
+// Cart button event handler | opens cart menu
 cartBtn.addEventListener('click', () =>{
     cartMenu.classList.toggle('active')
+    document.body.addEventListener('click', closeCart)
 })
 
-//// CODE NEEDS REFACTORING ////
-const checkParent = function(element, target)
-{
-    if (element == target)
-    {
-        return false
-    }
+// Checks whether if it should close the cart menu or not.
+const closeCart = function(e){
+    if(e.target.closest('#cart') || e.target.closest('#cart-btn') || e.target.closest('.item-delete')) return
     else
     {
-        let parent = element.parentElement
-        if (parent == target)
-        {
-            return false
-        }
-        else
-        {
-            while (parent != target)
-            {
-                parent = parent.parentElement
-                if (parent == html)
-                {
-                    return true
-                }
-            }
-            return false
-        }
-    }
+        cartMenu.classList.remove('active')
+        
+        // Destroy event listener once cart menu is no longer shown
+        document.body.removeEventListener('click', closeCart)
+    } 
 }
-
-html.addEventListener('click', (e) =>
-{
-    if (e.target == cartBtn || e.target.className == 'item-delete')
-    {
-        return
-    }
-    else
-    {
-        if (cartMenu.classList.contains('active'))
-        {
-            if(!checkParent(e.target, addToCart))
-            {
-                return
-            }
-            else if (checkParent(e.target, cartMenu))
-                cartMenu.classList.remove('active')
-            else 
-                return
-        }
-    }
-})
-//// CODE NEEDS REFACTORING ////
 
 const showWarning = message => 
 {
@@ -362,10 +318,10 @@ const showWarning = message =>
     }, 2000)
 }
 
-addToCart.addEventListener('click', () =>
+addToCart.addEventListener('click', () => 
 {
     if (isNaN(Number(quantity.textContent))) return
-    else if (Number(quantity.textContent) == 0 || cartList.classList.contains('has-item')) Number(quantity.textContent) == 0 ? showWarning('No quantity entered!') : showWarning('Item already added to cart!')
+    else if (Number(quantity.textContent) == 0 || cartList.classList.contains('has-item')) showWarning('An error has occured while adding item to cart.')
     else
     {
         const product = new Product(quantity.textContent, 125, itemName.textContent)
