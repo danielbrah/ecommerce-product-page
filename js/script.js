@@ -1,7 +1,102 @@
 'use strict';
+class Product{
+    constructor(quantity, price, name)
+    {
+        // Binding the function to the class instance (this) and replacing the method with a new one.
+        this.eventListener = this._removeItem.bind(this)
+
+        // Properties
+        this.quantity = quantity
+        this.price = price
+        this.name = name
+        this.item = this._createElement(this.quantity, this.price, this.name)
+
+        this.item.querySelector('.item-delete').addEventListener('click', this.eventListener)
+    }
+
+    _createElement(quantity, price, name)
+    {
+        // Create document fragment to increase performance
+        const fragment = document.createDocumentFragment();
+        // Setting image
+        const image = document.createElement('img')
+        const image2 = document.createElement('img')
+        image2.className = 'item-delete'
+        image.className = 'item-mini-pic'
+        image.src = 'images/image-product-1.jpg'
+        image.width = 50
+        image.height = 50
+        image.alt = 'Image of product 1'
+        
+        image2.src = 'images/icon-delete.svg'
+        image2.alt = 'Delete icon'
+
+        // Creating item text divs
+        const itemInfo = document.createElement('div')
+        const itemName = document.createElement('p')
+        const itemNumbers = document.createElement('div')
+        const itemNumbersInfo = document.createElement('p')
+        const itemPrice = document.createElement('span')
+        const itemQuantity = document.createElement('span')
+        const itemCost = document.createElement('strong')
+
+        // Setting classes
+        itemNumbers.className = 'item-numbers'
+        itemPrice.className = 'item-price'
+        itemQuantity.className = 'item-quantity'
+        itemCost.className = 'item-cost'
+        itemInfo.className = 'item-info'
+
+        // Setting text
+        itemName.textContent = name
+        itemPrice.textContent = `$${price.toFixed(2)} x `
+        itemQuantity.textContent = quantity
+        itemCost.textContent = ` $${(price * quantity).toFixed(2)}`
+
+        // Appending info
+        itemNumbersInfo.appendChild(itemPrice)
+        itemNumbersInfo.appendChild(itemQuantity)
+        itemNumbersInfo.appendChild(itemCost)
+
+        itemInfo.appendChild(itemName)
+        itemInfo.appendChild(itemNumbersInfo)    
+
+        // Creating item div
+        const item = document.createElement('div')
+        item.className = 'item'
+        item.append(image)
+        item.append(itemInfo)
+        item.append(image2)
+
+        cartList.insertBefore(item, document.getElementById('checkout-btn'))
+
+        return item
+    }
+
+    _removeItem()
+    {   
+        // Event function
+        this.item.remove()
+        document.getElementById('cart-empty').classList.toggle('active')
+        document.getElementById('checkout-btn').classList.toggle('active')
+        cartList.classList.remove('has-item')
+
+        // Discards event listener
+        this.item.querySelector('.item-delete').removeEventListener('click', this.eventListener)
+    }
+}
+
+class Lightbox
+{
+    
+}
+
+// Navigation components
 const navMenu = document.getElementById('nav-menu')
 const navOpen = document.getElementById('menu-open')
 const navClose = document.getElementById('menu-close')
+
+// Cart actions and components
 const overlay = document.getElementById('overlay')
 const quantity = document.querySelector('[id=quantity] h2')
 const quantityAdd = document.querySelector('[id=quantity] [id=quantity-add]')
@@ -9,8 +104,10 @@ const quantitySubtract = document.querySelector('[id=quantity] [id=quantity-subt
 const itemName = document.getElementById('product-name')
 const warning = document.getElementById('warning-message')
 const warningMessage = document.querySelector('[id=warning-message] p')
-const html = document.querySelector('html')
-// cart
+
+const html = document.querySelector('html') // NEED TO DELETE
+
+// cart components
 const cartBtn = document.getElementById('cart-btn')
 const cartMenu = document.getElementById('cart')
 const cartList = document.getElementById('cart-list')
@@ -34,6 +131,7 @@ for(let i = 0; i < Array.from(document.getElementById('lightbox-image-container'
         lightboxImagePreview.push(item)
 }
 
+// For carousel functions
 const imageSelectionArrows = [
     {'array': Array.from(document.getElementById('lightbox-arrows').children),
      'preview' : lightboxImagePreview,
@@ -57,7 +155,7 @@ navClose.addEventListener('click', (e) =>{
     overlay.classList.toggle('active')
 })
 
-// quantity
+// Quantity buttons: add or subtract
 quantityAdd.addEventListener('click', () =>{
     if(isNaN(Number(quantity.textContent)))
         quantity.textContent = 0
@@ -202,6 +300,7 @@ cartBtn.addEventListener('click', () =>{
     cartMenu.classList.toggle('active')
 })
 
+//// CODE NEEDS REFACTORING ////
 const checkParent = function(element, target)
 {
     if (element == target)
@@ -251,68 +350,7 @@ html.addEventListener('click', (e) =>
         }
     }
 })
-
-const createItem = (quantity, price, name) =>
-{
-    // Setting image
-    const image = document.createElement('img')
-    const image2 = document.createElement('img')
-    image2.className = 'item-delete'
-    image.className = 'item-mini-pic'
-    image.src = 'images/image-product-1.jpg'
-    image.width = 50
-    image.height = 50
-    image.alt = 'Image of product 1'
-    
-    image2.src = 'images/icon-delete.svg'
-    image2.alt = 'Delete icon'
-
-    // Creating item text divs
-    const itemInfo = document.createElement('div')
-    const itemName = document.createElement('p')
-    const itemNumbers = document.createElement('div')
-    const itemNumbersInfo = document.createElement('p')
-    const itemPrice = document.createElement('span')
-    const itemQuantity = document.createElement('span')
-    const itemCost = document.createElement('strong')
-
-    // Setting classes
-    itemNumbers.className = 'item-numbers'
-    itemPrice.className = 'item-price'
-    itemQuantity.className = 'item-quantity'
-    itemCost.className = 'item-cost'
-    itemInfo.className = 'item-info'
-
-    // Setting text
-    itemName.textContent = name
-    itemPrice.textContent = `$${price.toFixed(2)} x `
-    itemQuantity.textContent = quantity
-    itemCost.textContent = ` $${(price * quantity).toFixed(2)}`
-
-    itemNumbersInfo.appendChild(itemPrice)
-    itemNumbersInfo.appendChild(itemQuantity)
-    itemNumbersInfo.appendChild(itemCost)
-
-    itemInfo.appendChild(itemName)
-    itemInfo.appendChild(itemNumbersInfo)    
-
-    // Creating item div
-    const item = document.createElement('div')
-    item.className = 'item'
-    item.append(image)
-    item.append(itemInfo)
-    item.append(image2)
-
-    image2.addEventListener('click', () =>
-    {
-        item.remove()
-        document.getElementById('cart-empty').classList.toggle('active')
-        document.getElementById('checkout-btn').classList.toggle('active')
-        cartList.classList.remove('has-item')
-    })
-
-    cartList.insertBefore(item, document.getElementById('checkout-btn'))
-}
+//// CODE NEEDS REFACTORING ////
 
 const showWarning = message => 
 {
@@ -326,20 +364,13 @@ const showWarning = message =>
 
 addToCart.addEventListener('click', () =>
 {
-    if (isNaN(Number(quantity.textContent)))
-    {
-        return
-    }
-    else if (Number(quantity.textContent) == 0 || cartList.classList.contains('has-item'))
-    {
-        if(Number(quantity.textContent) == 0)
-            showWarning('No quantity entered!')
-        else
-            showWarning('Item already added to cart!')
-    }
+    if (isNaN(Number(quantity.textContent))) return
+    else if (Number(quantity.textContent) == 0 || cartList.classList.contains('has-item')) Number(quantity.textContent) == 0 ? showWarning('No quantity entered!') : showWarning('Item already added to cart!')
     else
     {
-        createItem(Number(quantity.textContent), 125, itemName.textContent)
+        const product = new Product(quantity.textContent, 125, itemName.textContent)
+        
+        // Removing text that appears when cart is empty.
         cartList.classList.toggle('has-item')
         document.getElementById('cart-empty').classList.toggle('active')
         document.getElementById('checkout-btn').classList.toggle('active')
