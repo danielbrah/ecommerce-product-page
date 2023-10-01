@@ -17,7 +17,7 @@ class Product{
     _createElement(quantity, price, name)
     {
         // Create document fragment to increase performance
-        const fragment = document.createDocumentFragment();
+        // const fragment = document.createDocumentFragment();
         // Setting image
         const image = document.createElement('img')
         const image2 = document.createElement('img')
