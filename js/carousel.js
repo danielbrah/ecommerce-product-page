@@ -1,19 +1,10 @@
 // These variables help keep track of when an image from the selection is clicked, the lightbox image will be shown as the clicked image.
 let activeImage = 0
 let activeLightboxImage = 0
-
 const imageSelection = Array.from(document.getElementById('product-image-selection').children)
 const imagePreview = Array.from(document.getElementById('product-image-wrapper').children)
-
 const lightboxImageSelection = Array.from(document.getElementById('lightbox-image-selection').children)
-// Sets up lightboxImagePreview array
-const lightboxImagePreview = []
-for(let i = 0; i < Array.from(document.getElementById('lightbox-image-container').children).length; i++)
-{
-    const item = Array.from(document.getElementById('lightbox-image-container').children)[i]
-    if(item.tagName == 'IMG')
-        lightboxImagePreview.push(item)
-}
+const lightboxImagePreview = Array.from(document.getElementById('lightbox-image-container').children).filter(item => item.tagName === "IMG")
 
 // For carousel functions
 const imageSelectionArrows = [
@@ -27,16 +18,8 @@ const imageSelectionArrows = [
 const productImage = document.getElementById('product-image-wrapper')
 const lightbox = document.getElementById('lightbox')
 
-const findActivePreviewImage = (preview) =>{
-    let activeElement
-    preview.forEach(element =>{
-        if(element.classList.contains('active'))
-        {
-            activeElement = element
-        } 
-    })
-    return activeElement
-}
+const findActivePreviewImage = (preview) => preview.find(preview => preview.classList.contains('active'))
+
 
 const carousel = (value, preview, selection) =>
 {
@@ -77,8 +60,7 @@ const carousel = (value, preview, selection) =>
 imageSelectionArrows.forEach(obj =>{
     obj['array'].forEach(element =>{
         element.addEventListener('click', () =>{
-            if(element.classList.contains('lightbox-next') || element.classList.contains('product-next')) carousel(1, obj.preview, obj.selection)
-            else carousel(-1, obj.preview, obj.selection)
+            carousel(Number(element.dataset.val), obj.preview, obj.selection)
         })
     })
 })
@@ -134,22 +116,28 @@ productImage.addEventListener('click', (e) =>{
         lightbox.style.visibility = 'visible'
         lightbox.style.opacity = '1'
         setLightboxPreviewImage(e.target, lightboxImagePreview, lightboxImageSelection)
+
+        document.addEventListener('keydown', hideLightbox)
+        document.getElementById('lightbox-svg-container').addEventListener('click', hideLightbox)
     }
     else{return}
 })
 
-const hideLightbox = () =>{
-    lightbox.style.visibility = 'hidden'
-    lightbox.style.opacity = '0'
-}
-
 
 imagePreviewing(imageSelection, imagePreview)
-
 imagePreviewing(lightboxImageSelection, lightboxImagePreview)
-document.addEventListener('keydown', e =>{
-    if (e.key == 'Escape' && lightbox.style.opacity != 0)
-        hideLightbox()
-})
 
-document.getElementById('lightbox-svg-container').addEventListener('click', hideLightbox)
+const hideLightbox = (e) =>{
+    if (e.key == 'Escape')
+    {
+        lightbox.style.visibility = 'hidden'
+        lightbox.style.opacity = '0'
+        document.removeEventListener('keydown', hideLightbox)
+    }
+    else
+    {
+        lightbox.style.visibility = 'hidden'
+        lightbox.style.opacity = '0'
+        document.getElementById('lightbox-svg-container').removeEventListener('click', hideLightbox)
+    }
+}
